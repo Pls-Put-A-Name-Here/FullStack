@@ -106,4 +106,4 @@ For additional information, project setup details, coding standards, and guideli
 Thank you for contributing to the `FullStack` project under `pls-put-a-name-here`! Let's build something amazing together.
 
 ---
-<div style="display:flex;justify-content:center">©Pls-Put-A-Name-Here 2024<div>
+<div style="display:flex;justify-content:center">Â©Pls-Put-A-Name-Here 2024<div>
