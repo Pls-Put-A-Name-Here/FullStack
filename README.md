@@ -10,7 +10,7 @@ This is the second iteration of the EcommerceX platform
 
 2. **Clone Your Fork:**
 
-   git clone <https://github.com/your-username/Fullstack.git>
+   git clone <https://github.com/your-username/FullStack.git>
 
 3. **Create a New Branch:**
 
