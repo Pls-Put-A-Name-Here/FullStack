@@ -1,3 +1,4 @@
+--Bright Start
 -- User Table
 CREATE TABLE tblUsers (
     usrIdpk INT PRIMARY KEY IDENTITY(1,1),
@@ -39,7 +40,9 @@ CREATE TABLE tblProductCategories (
     ctgCreatedDate DATETIME DEFAULT GETDATE(),
     ctgLastEditDate DATETIME DEFAULT GETDATE(),
 );
-
+-- Bright Ends
+-- Kirk Starts 
+-- ProductSubCategories Table
 CREATE TABLE tblProductSubCategories(
 	sctgIdpk INT PRIMARY KEY IDENTITY(1,1),
     sctgName NVARCHAR(100) NOT NULL,
@@ -70,6 +73,7 @@ CREATE TABLE tblProductImages (
     imgUploadDate DATETIME DEFAULT GETDATE(),
     imgLastEditDate DATETIME DEFAULT GETDATE()
 );
+-- 9 Product Details Table
 CREATE TABLE tblProductDetails (
     prdDetailsIdpk INT PRIMARY KEY,
     prdDetailsPrdIdfk INT FOREIGN KEY REFERENCES tblProducts(prdIdpk),
@@ -92,8 +96,9 @@ CREATE TABLE tblProductVariants (
     prvQuantityAvailable INT,
     prvSKU NVARCHAR(100)
 );
+-- Kirk Ends
 
-
+--Joseph Starts
 -- Order Status Table
 CREATE TABLE tblOrderStatuses (
     ordStatusIdpk INT PRIMARY KEY,
@@ -148,6 +153,9 @@ CREATE TABLE tblSuppliers (
     supPostalCode NVARCHAR(20),
     supCountry NVARCHAR(100)
 );
+--Joseph Ends
+
+-- Jonathan Starts
 -- Inventory Table
 CREATE TABLE tblInventory (
     invIdpk INT PRIMARY KEY IDENTITY(1,1),
@@ -160,7 +168,7 @@ CREATE TABLE tblInventory (
     invExpirationDate DATETIME,
     invLastUpdateDate DATETIME DEFAULT GETDATE()
 );
-
+-- 17 Payment Methods Table
 CREATE TABLE tblPaymentMethods(
 	pmtIdpk INT PRIMARY KEY IDENTITY(1,1),
 	pmtName NVARCHAR(100),
@@ -199,7 +207,9 @@ CREATE TABLE tblCartItems (
     crtItemQuantity INT,
     crtItemUnitPrice DECIMAL(10, 2)
 );
+-- Jonathan Ends
 
+--Vine Starts
 -- Reviews Table
 CREATE TABLE tblReviews (
     revIdpk INT PRIMARY KEY IDENTITY(1,1),
@@ -245,9 +255,15 @@ CREATE TABLE tblUserRoles (
     urlAccIdfk INT FOREIGN KEY REFERENCES tblAccounts(accIdpk),
     urlRolIdfk INT FOREIGN KEY REFERENCES tblRoles(rolIdpk)
 );
+-- vine Ends
 
-
-
+-- Pick one of the below tables in this order and write models on them.
+-- Comment them afterwards
+--Bright
+--Kirk
+--Joseph
+-- Jonathan
+--Vine
 
 
 ---- Payment Details Table
