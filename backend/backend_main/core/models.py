@@ -8,7 +8,7 @@ class UserTable(models.Model):
     user_password = models.CharField(max_length=50)
     user_email = models.CharField(max_lenght=50)
     user_date_of_birth = models.DateField()
-    user_phone_number = moodels.CharField(max_length=50)
+    user_phone_number = models.CharField(max_length=50)
 
     def __str__(self):
         return self.user_name
@@ -16,18 +16,17 @@ class UserTable(models.Model):
 class UserAddressTable(models.Model):
     address_location = models.CharField(max_length=255)
     digital_address = models.CharField(max_length=255)
-    digital_address = models.CharField(max_field=255)
-    house_address = models.CharField(max_field=255)
+    house_address = models.CharField(max_length=255)
     def __str__(self):
         return self.digital_address
 # This is the model for tblCustomers
 class CustomerTable(models.Model):
-    user_id = models.ForeignKey(UserTable, on_delete=CASCADE)
-    address_id = models.ForeignKey(UserAddress, on_delete=CACADE)
+    user_id = models.ForeignKey(UserTable, on_delete=models.CASCADE)
+    address_id = models.ForeignKey(UserAddressTable, on_delete=models.CASCADE)
 class BrandsTable(models.Model):
     brand_name = models.CharField(max_length=100, null=False, blank=False)
     country_of_origin = models.CharField(max_length=100)
-    year_established = moodels.IntegerField()
+    year_established = models.IntegerField()
     description = models.TextField()
     created_date = models.DateField(auto_now_add=True)
     last_edit_date = models.DateField(auto_now=True)
