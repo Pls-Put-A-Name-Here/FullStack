@@ -94,7 +94,9 @@ CREATE TABLE tblProductVariants (
     prvMaterial NVARCHAR(50),
     prvPriceModifier DECIMAL(10, 2),
     prvQuantityAvailable INT,
-    prvSKU NVARCHAR(100)
+    prvSKU NVARCHAR(100),
+    prvCreatedDate DATETIME DEFAULT GETDATE(),
+    prvLastEditDate DATETIME DEFAULT GETDATE()
 );
 -- Kirk Ends
 
