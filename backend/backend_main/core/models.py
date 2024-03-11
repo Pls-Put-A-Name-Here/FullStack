@@ -100,3 +100,62 @@ class ProductVariant(models.Model):
     last_edit_date = models.DateTimeField(auto_now=True,db_column='prvLastEditDate') 
 
 #Kirk ends
+
+#Joseph starts
+
+
+#Joseph ends
+
+
+#Jonathan starts
+
+#This the model for tb1Inventory
+class Inventory(models.Model):
+    invIdpk = models.AutoField(primary_key=True)
+    invPrdIdfk = models.ForeignKey('Product', on_delete=models.CASCADE)
+    invQuantityAvailable = models.IntegerField()
+    invUnitPrice = models.DecimalField(max_digits=10, decimal_places=2)
+    invUnitCost = models.DecimalField(max_digits=10, decimal_places=2)
+    invSupIdfk = models.ForeignKey('Supplier', on_delete=models.CASCADE)
+    invDateAdded = models.DateTimeField()
+    invExpirationDate = models.DateTimeField()
+    invLastUpdateDate = models.DateTimeField(auto_now=True)
+
+#This the models for tblPaymentMethods
+class PaymentMethod(models.Model):
+    pmtIdpk = models.AutoField(primary_key=True)
+    pmtName = models.CharField(max_length=100)
+    pmtDescription = models.CharField(max_length=255)
+    pmtCreatedDate = models.DateTimeField(auto_now_add=True)
+    pmtLastUpdateDate = models.DateTimeField(auto_now=True)    
+
+#This the models for    tblPurchase
+class Purchase(models.Model):
+    pchIdpk = models.AutoField(primary_key=True)
+    pchCustIdfk = models.ForeignKey('Customer', on_delete=models.CASCADE)
+    pchPurchaseDate = models.DateTimeField()
+    pchTotalAmount = models.DecimalField(max_digits=10, decimal_places=2)
+    pchPmtIdfk = models.ForeignKey('PaymentMethod', on_delete=models.CASCADE)
+    pchPstIdfk = models.ForeignKey('PaymentStatus', on_delete=models.CASCADE)
+    pchCreatedDate = models.DateTimeField(auto_now_add=True)
+    pchLastUpdateDate = models.DateTimeField(auto_now=True)
+
+#This the models for tblCarts
+class Cart(models.Model):
+    crtIdpk = models.AutoField(primary_key=True)
+    crtCustomerIdfk = models.ForeignKey('Customer', on_delete=models.CASCADE)
+    crtCreatedAt = models.DateTimeField(auto_now_add=True)
+    crtStatus = models.CharField(max_length=50, default='Active')     
+
+#This the models for tblCartItems
+class CartItem(models.Model):
+    crtItemIdpk = models.AutoField(primary_key=True)
+    crtItemCrtIdfk = models.ForeignKey('Cart', on_delete=models.CASCADE)
+    crtItemPrdIdfk = models.ForeignKey('Product', on_delete=models.CASCADE)
+    crtItemQuantity = models.IntegerField()
+    crtItemUnitPrice = models.DecimalField(max_digits=10, decimal_places=2)
+
+#-- Jonathan Ends
+
+
+
