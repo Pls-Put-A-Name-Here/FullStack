@@ -1,3 +1,4 @@
+
 """
 Django settings for backend_main project.
 
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'product',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +77,14 @@ WSGI_APPLICATION = 'backend_main.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        "ENGINE": "mssql",
+        "NAME": "dbEcommerceX",
+        "USER":"",
+        "PASSWORD":"",
+       # change host name to the name you see when you are trying to login to ssms
+        "HOST":"KIRKPC\SALEMSERVER",
+        "PORT": "",
+        "OPTIONS": {"driver": "ODBC Driver 17 for SQL Server"},
     }
 }
 
@@ -121,3 +129,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
