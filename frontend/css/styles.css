@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+body{
+    margin: 0 2%;
+}
+
+header{
+    height: 92px;
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+header a{
+    text-decoration: none;
+    color: black;
+}
+header nav{
+    display: flex;
+    width: 100%;
+    margin: 4px;
+    justify-content: space-between;
+}
+
+
+header .logo a{
+    display: flex;
+    align-items: center;
+    
+}
+
+header .logo a h3{
+    color: #073D7E;
+    font-size: 24px;
+    font-weight: 700;
+}
+header .logo img{
+    width: 36px;
+    margin: 0 12px 0 0;
+}
+
+
+header nav .navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+header nav .navigation .search{
+    display: relative;
+}
+
+header nav .navigation{}
+
+
+header nav .nav-items p{
+    display: inline;
+}
