@@ -1,10 +1,19 @@
+:root{
+    --primary-color: #073D7E;
+    --secondary-color: #535353;
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: 0;
 }
 body{
-    margin: 0 2%;
+    background-color: #F6F6F6;
+}
+.container{
+    margin: 0 60px;
+   
 }
 
 header{
@@ -34,7 +43,7 @@ header .logo a{
 }
 
 header .logo a h3{
-    color: #073D7E;
+    color: var(--primary-color);
     font-size: 24px;
     font-weight: 700;
 }
@@ -57,14 +66,18 @@ header nav .navigation .search{
 }
 
 header nav .navigation .search input{
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc00;
     border-radius: 50px;
     height: 36px;
     width: 283px;
-    box-shadow: 0px 4px 12px #0000003f;
+    box-shadow: 0px 4px 12px #00000019;
     padding: 0 12px 0 40px;
     font-style: italic;
 }
+header nav .navigation .search input:focus{
+    border: 1px solid var(--primary-color);
+}
+
 
 header nav .navigation .search img{
     position: absolute;
@@ -86,7 +99,7 @@ header nav .nav-items a{
 header nav .nav-items img{
     padding: 6px;
     border-radius: 50%;
-    box-shadow: 0px 4px 12px #0000003f;
+    box-shadow: 0px 4px 12px #00000019;
     
 }
 
@@ -148,7 +161,7 @@ header nav .nav-items p{
     }
 
     header nav .navigation .search .search-field.show::placeholder{
-        color: #535353;
+        color: var(--secondary-color);
     }
 
     header nav .nav-items p{
