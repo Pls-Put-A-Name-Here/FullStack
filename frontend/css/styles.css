@@ -23,6 +23,7 @@ header nav{
     width: 100%;
     margin: 4px;
     justify-content: space-between;
+    align-items: center;
 }
 
 
@@ -97,23 +98,59 @@ header nav .nav-items p{
 
 @media screen and (max-width: 768px){
 
+    header nav .navigation{
+        gap: 18px;
+    }
+
     header nav .navigation .search{
         position: relative;
         
     }
-    header nav .navigation .search input{
-        width: 22px;
-        padding: 18px;
+
+    header .logo a h3{
+         font-size: 18px;
+    }
+    header .logo img{
+        width: 18px;
+    }
+    header nav .navigation .search .search-field{
+        width: 26px;
+        padding: 2px;
+        height: 26px;
     }
 
     header nav .navigation .search img{
-        right: 7px;
-        top: 8px;
+        right: 6px;
+        top: 6px;
         cursor: pointer;
-        /* width: 16px;
-        height: 16px; */
+        z-index: 1;
+        width: 16px;
+        height: 16px;
+        
        
     }
+    header nav .nav-items img{
+          width: 16px;
+        height: 16px;
+       
+    }
+    header nav .navigation .search .search-field.show {
+        min-width: 200px;
+        padding: 10px;
+        z-index: 1;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: auto;
+    }
+    header nav .navigation .search .search-field::placeholder{
+        color: #cccccc00;
+    }
+
+    header nav .navigation .search .search-field.show::placeholder{
+        color: #535353;
+    }
+
     header nav .nav-items p{
         display: none;
     }
