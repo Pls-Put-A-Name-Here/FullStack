@@ -44,6 +44,8 @@ main .sidebar{
     border-radius: var(--border-radius);
     padding: 12px;
     color: #fff;  
+    display: flex;
+    justify-content: space-between;
 }
 .sidebar .side-banner .side-banner-items{
     height: 150px;
