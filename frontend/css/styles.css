@@ -132,6 +132,7 @@ header nav .nav-items p{
         width: 26px;
         padding: 2px;
         height: 26px;
+        display: none;
     }
 
     header nav .navigation .search img{
@@ -141,6 +142,7 @@ header nav .nav-items p{
         z-index: 1;
         width: 16px;
         height: 16px;
+        display: none;
         
        
     }
