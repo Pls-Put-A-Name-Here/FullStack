@@ -14,11 +14,11 @@ main .main-content{
 }
 
 main .home-banner{
-    background-color: rgba(17, 183, 248, 0.116);
-    padding: 12px 24px;
+    background-color: #D9E8F9;
+    padding: 12px 52px;
     display: flex;
     justify-content: space-between;
-    height: 40vh;
+    height: 36vh;
     width: 100%;
     border-radius: var(--border-radius);
     align-items: center;
@@ -29,30 +29,57 @@ main .home-banner{
 .home-banner .banner-image{
     height: 100%;
 }
+
 .home-banner .banner-image img{
     height: 100%;
 }
 
+
+/* -----------side bar----------- */
 main .sidebar{  
-    width: 28%;
-    
+    width: 28%;   
 }
 
 
 .sidebar .side-banner{
-    background: linear-gradient(to bottom right, rgba(82, 50, 224, 0.3), rgba(82, 50, 224, 0.842) 46%);
+    background: linear-gradient(to bottom right, #80B1EC 6%, #4E87CC 100%, #3673BD 100%);
     border-radius: var(--border-radius);
     padding: 12px;
     color: #fff;  
     display: flex;
     justify-content: space-between;
+    height: 26vh; 
 }
 .sidebar .side-banner .side-banner-items{
-    height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
 }
+
+
+.sidebar .side-banner .side-banner-image img{
+    height: 100%;
+}
+
+/* --------daily deals------ */
+.sidebar .daily-deals{
+    margin: 40px 0 0 0;
+}
+
+
+.sidebar .daily-deals .deals-items{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.sidebar .daily-deals .deals-items h3{
+    color: var(--text-color);
+    margin: 0 0 24px 0;
+}
+
+
 
 @media screen and (max-width:768px) {
     main .main-content{

@@ -1,7 +1,8 @@
 :root{
     --primary-color: #073D7E;
     --secondary-color: #535353;
-    --border-radius: 8px
+    --text-color: #2B5C97;
+    --border-radius: 8px;
 }
 
 *{
