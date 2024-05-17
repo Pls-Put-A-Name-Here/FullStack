@@ -80,6 +80,29 @@ main .sidebar{
 }
 
 
+/* ------------Products Section------- */
+main .products-section{
+    margin: 24px 0 0 0;
+}
+
+main .products-section .products-container{
+    display: flex;
+    gap: 8px;
+
+}
+
+.products-container .products{
+    width: 150px;
+    height: 180px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--border-radius);
+    justify-content: space-between;
+    box-shadow: var(--box-shadow);
+}
+
+
 
 @media screen and (max-width:768px) {
     main .main-content{
