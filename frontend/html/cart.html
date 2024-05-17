@@ -3,101 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Linking Tailwind CSS for utility-first CSS framework -->
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Linking Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <!-- Linking Bootstrap CSS for additional styling and components -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
     <title>Cart</title>
 </head>
-<body>
-    <!-- Main container with background color and padding -->
-    <div class="bg-zinc-100 p-8 min-h-screen">
-        <!-- Header section with store name and search, cart, account buttons -->
+<body class="bg-gray-100">
+    <div class="container mx-auto p-8 min-h-screen">
         <header class="flex justify-between items-center mb-8">
-            <h1 class="text-3xl font-bold">Jonas Store</h1>
+            <h1 class="text-3xl font-bold flex items-center">
+                <img src="https://placehold.co/30x30" alt="Logo" class="mr-2"> Jonas Store
+            </h1>
             <div class="space-x-4">
-                <!-- Search input -->
                 <input type="text" placeholder="Search Products" class="p-2 border rounded">
-                <!-- Cart button -->
                 <button class="p-2 border rounded">Cart</button>
-                <!-- Account button -->
                 <button class="p-2 border rounded">Account</button>
             </div>
         </header>
-        <div class="flex justify-between gap-8">
-            <!-- Shopping Cart section -->
-            <div class="bg-white p-6 rounded-lg shadow-md w-2/3">
+        <div class="flex flex-wrap lg:flex-nowrap justify-between gap-8">
+            <!-- Shopping Cart Section -->
+            <div class="bg-white p-6 rounded-lg shadow-md w-full lg:w-2/3">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-bold">Shopping Cart</h2>
-                    <!-- Display number of items in cart -->
                     <span>3 items</span>
                 </div>
-                <div class="divide-y divide-zinc-300">
-                    <!-- Table header row -->
-                    <div class="py-4 grid grid-cols-4 items-center">
-                        <span class="font-semibold">PRODUCT DETAILS</span>
-                        <span class="font-semibold">QUANTITY</span>
-                        <span class="font-semibold">PRICE</span>
-                        <span class="font-semibold">TOTAL</span>
+                <div class="divide-y divide-gray-300">
+                    <!-- Table Header -->
+                    <div class="py-4 grid grid-cols-4 items-center font-semibold">
+                        <span>PRODUCT DETAILS</span>
+                        <span>QUANTITY</span>
+                        <span>PRICE</span>
+                        <span>TOTAL</span>
                     </div>
-                    <!-- Product row -->
+                    <!-- Product Item -->
                     <div class="py-4 grid grid-cols-4 items-center">
                         <div class="flex items-center space-x-2">
-                            <!-- Product image -->
                             <img src="https://placehold.co/50x50" alt="Product Image" class="rounded-full">
                             <div>
-                                <!-- Product name and rating -->
                                 <p>Original Roy Wireless</p>
                                 <div class="text-yellow-400">★★★★☆</div>
                             </div>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <!-- Quantity control buttons -->
-                            <button>-</button>
-                            <input type="text" value="2" class="w-12 text-center">
-                            <button>+</button>
+                            <button class="border p-1 rounded">-</button>
+                            <input type="text" value="2" class="w-12 text-center border rounded">
+                            <button class="border p-1 rounded">+</button>
                         </div>
-                        <!-- Price and total for the product -->
+                        <span>$33.33</span>
+                        <span>$66.66</span>
+                    </div>
+                    <!-- Repeat for other products -->
+                    <div class="py-4 grid grid-cols-4 items-center bg-gray-50 rounded-md">
+                        <div class="flex items-center space-x-2">
+                            <img src="https://placehold.co/50x50" alt="Product Image" class="rounded-full">
+                            <div>
+                                <p>Original Roy Wireless</p>
+                                <div class="text-yellow-400">★★★★☆</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button class="border p-1 rounded">-</button>
+                            <input type="text" value="2" class="w-12 text-center border rounded">
+                            <button class="border p-1 rounded">+</button>
+                        </div>
+                        <span>$33.33</span>
+                        <span>$66.66</span>
+                    </div>
+                    <div class="py-4 grid grid-cols-4 items-center">
+                        <div class="flex items-center space-x-2">
+                            <img src="https://placehold.co/50x50" alt="Product Image" class="rounded-full">
+                            <div>
+                                <p>Original Roy Wireless</p>
+                                <div class="text-yellow-400">★★★★☆</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button class="border p-1 rounded">-</button>
+                            <input type="text" value="2" class="w-12 text-center border rounded">
+                            <button class="border p-1 rounded">+</button>
+                        </div>
                         <span>$33.33</span>
                         <span>$66.66</span>
                     </div>
                 </div>
-                <!-- Continue shopping button -->
                 <button class="mt-6 text-blue-600">« Continue Shopping</button>
             </div>
-            <!-- Order Summary section -->
-            <div class="bg-white p-6 rounded-lg shadow-md w-1/3">
+            <!-- Order Summary Section -->
+            <div class="bg-white p-6 rounded-lg shadow-md w-full lg:w-1/3">
                 <h2 class="text-2xl font-bold mb-6">Order Summary</h2>
                 <div class="space-y-4">
                     <div class="flex justify-between">
-                        <!-- Display item price -->
                         <span>ITEM 2</span>
                         <span>$33.33</span>
                     </div>
                     <div>
-                        <!-- Shipping dropdown -->
                         <label for="shipping" class="block mb-1">SHIPPING</label>
                         <select id="shipping" class="w-full p-2 border rounded">
                             <option>UMaT-Tarkwa</option>
                         </select>
                     </div>
                     <div>
-                        <!-- Promo code dropdown -->
                         <label for="promo" class="block mb-1">PROMO CODE</label>
                         <select id="promo" class="w-full p-2 border rounded">
                             <option>Enter your code</option>
                         </select>
                     </div>
-                    <!-- Apply promo code button -->
                     <button class="w-full bg-blue-500 text-white p-2 rounded">APPLY HERE</button>
                     <div class="flex justify-between font-bold">
-                        <!-- Display total cost -->
                         <span>TOTAL COST</span>
                         <span>$33.33</span>
                     </div>
-                    <!-- Checkout button -->
                     <button class="w-full bg-blue-500 text-white p-2 rounded mt-4">CHECKOUT</button>
                 </div>
             </div>

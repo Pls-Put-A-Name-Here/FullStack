@@ -556,3 +556,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+#Manasseh
+cart.txt
