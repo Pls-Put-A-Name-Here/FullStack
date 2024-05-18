@@ -32,15 +32,15 @@ products.map(product => {
     const productRatingDiv = document.createElement('div');
     productRatingDiv.classList.add('product-rating');
     
-    // Assuming you have some logic to display rating icons
+    // logic to display rating icons
     for (let i = 0; i < product.rating; i++) {
         const ratingIcon = document.createElement('div');
-        ratingIcon.textContent = '★'; // Example icon, you can replace it with actual icon elements
+        ratingIcon.textContent = '★'; 
         productRatingDiv.appendChild(ratingIcon);
     }
     for (let i = product.rating; i < 5; i++) {
         const emptyIcon = document.createElement('div');
-        emptyIcon.textContent = '☆'; // Example empty icon
+        emptyIcon.textContent = '☆'; 
         productRatingDiv.appendChild(emptyIcon);
     }
 

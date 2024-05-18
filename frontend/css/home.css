@@ -100,8 +100,26 @@ main .products-section .products-container{
     border-radius: var(--border-radius);
     justify-content: space-between;
     box-shadow: var(--box-shadow);
+    padding: 8px;
 }
 
+.products-container .products .product-image{
+    overflow: hidden;
+    height: 65%;
+    text-align: center;
+}
+.products-container .products img{
+    height: 100%;
+    /* width: 100%; */
+}
+
+.products-container .products .product-rating{
+    display: flex;
+    color: gold;
+}
+.products-container .products .product-rating div{
+  
+}
 
 
 @media screen and (max-width:768px) {
