@@ -88,12 +88,14 @@ main .products-section{
 main .products-section .products-container{
     display: flex;
     gap: 8px;
-
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
 }
 
 .products-container .products{
-    width: 150px;
-    height: 180px;
+    width: 23%;
+    height: 220px;
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -117,10 +119,19 @@ main .products-section .products-container{
     display: flex;
     color: gold;
 }
-.products-container .products .product-rating div{
-  
+.products-container .products .product-rating .empty-icon{
+    color: black;
 }
 
+.products-container .products .product-price{
+   font-size: 12px;
+}
+
+.products-container .products .product-rating .rating-value{
+    font-size: 0.7rem;
+    align-self: flex-end;
+    color: black;
+}
 
 @media screen and (max-width:768px) {
     main .main-content{
@@ -139,5 +150,11 @@ main .products-section .products-container{
     main .sidebar{  
         display: none;
         
+    }
+
+    /* ----------products--------- */
+    .products-container .products{
+        width: 40%;
+        height: 200px;
     }
 }
