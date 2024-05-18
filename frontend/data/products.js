@@ -1,13 +1,14 @@
+
 // products.js
 export const products = [
     {
-        image: 'image1.jpg',
+        image: '../assets/iphone-13.png',
         name: 'Product 1',
         price: '10.00',
         rating: 4
     },
     {
-        image: 'image2.jpg',
+        image: '../assets/black-airpods.png',
         name: 'Product 2',
         price: '20.00',
         rating: 5
