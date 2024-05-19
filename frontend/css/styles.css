@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+body{
+    margin: 0 2%;
+}
+
+header{
+    height: 92px;
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+header a{
+    text-decoration: none;
+    color: black;
+}
+header nav{
+    display: flex;
+    width: 100%;
+    margin: 4px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+header .logo a{
+    display: flex;
+    align-items: center;
+    
+}
+
+header .logo a h3{
+    color: #073D7E;
+    font-size: 24px;
+    font-weight: 700;
+}
+header .logo img{
+    width: 36px;
+    margin: 0 12px 0 0;
+}
+
+
+header nav .navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+}
+
+header nav .navigation .search{
+    position: relative;
+    
+}
+
+header nav .navigation .search input{
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    height: 36px;
+    width: 283px;
+    box-shadow: 0px 4px 12px #0000003f;
+    padding: 0 12px 0 40px;
+    font-style: italic;
+}
+
+header nav .navigation .search img{
+    position: absolute;
+    right: 250px;
+    top: 6px;
+    cursor: pointer;
+    /* width: 16px;
+    height: 16px; */
+   
+}
+
+
+header nav .nav-items a{
+    display: flex;
+    align-items: center; 
+    gap: 4px;
+}
+
+header nav .nav-items img{
+    padding: 6px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 12px #0000003f;
+    
+}
+
+header nav .nav-items p{
+    font-weight: 590;
+
+}
+
+
+@media screen and (max-width: 768px){
+
+    header nav .navigation{
+        gap: 18px;
+    }
+
+    header nav .navigation .search{
+        position: relative;
+        
+    }
+
+    header .logo a h3{
+         font-size: 18px;
+    }
+    header .logo img{
+        width: 18px;
+    }
+    header nav .navigation .search .search-field{
+        width: 26px;
+        padding: 2px;
+        height: 26px;
+    }
+
+    header nav .navigation .search img{
+        right: 6px;
+        top: 6px;
+        cursor: pointer;
+        z-index: 1;
+        width: 16px;
+        height: 16px;
+        
+       
+    }
+    header nav .nav-items img{
+          width: 16px;
+        height: 16px;
+       
+    }
+    header nav .navigation .search .search-field.show {
+        min-width: 200px;
+        padding: 10px;
+        z-index: 1;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: auto;
+    }
+    header nav .navigation .search .search-field::placeholder{
+        color: #cccccc00;
+    }
+
+    header nav .navigation .search .search-field.show::placeholder{
+        color: #535353;
+    }
+
+    header nav .nav-items p{
+        display: none;
+    }
+
+    
+}
