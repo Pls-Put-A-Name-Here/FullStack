@@ -93,10 +93,14 @@ main .products-section .products-container{
 }
 
 main .products-section #popular-products-container{
-   overflow: scroll;
-   
-}
+    display: flex;
+   overflow: hidden;
+   flex-wrap: nowrap;
 
+}
+main .products-section #popular-products-container .products{
+    width: 500px;
+}
 .products-container .products{
     min-width: 130px;
     height: 220px;
