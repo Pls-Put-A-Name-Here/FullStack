@@ -31,6 +31,13 @@ export const popularProducts = [
         price: '10.00',
         rating: 4.0
     },
+    
+    {
+        image: '../assets/iphone-13.png',
+        name: 'Product 1',
+        price: '10.00',
+        rating: 4.0
+    },
 
     // Add more products as needed
 ];

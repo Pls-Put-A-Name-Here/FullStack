@@ -85,16 +85,20 @@ main .products-section{
     margin: 24px 0 0 0;
 }
 
+
 main .products-section .products-container{
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: stretch;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+main .products-section #popular-products-container{
+   overflow: scroll;
+   
 }
 
 .products-container .products{
-    width: 23%;
+    min-width: 130px;
     height: 220px;
     background-color: #fff;
     display: flex;
@@ -153,8 +157,8 @@ main .products-section .products-container{
     }
 
     /* ----------products--------- */
-    .products-container .products{
-        width: 40%;
-        height: 200px;
+    main .products-section .products-container{
+    
+        grid-template-columns: repeat(2, 1fr);
     }
 }
