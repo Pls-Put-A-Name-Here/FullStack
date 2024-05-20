@@ -1,6 +1,6 @@
 :root{
     --primary-color: #073D7E;
-    --secondary-color: #535353;
+    --secondary-color: #555555;
     --text-color: #2B5C97;
     --border-radius: 8px;
     --box-shadow: 0px 4px 12px #00000019
@@ -10,7 +10,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 body{
     background-color: #F6F6F6;

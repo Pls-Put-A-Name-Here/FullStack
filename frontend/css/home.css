@@ -68,18 +68,43 @@ main .sidebar{
 }
 
 
-.sidebar .daily-deals .deals-items{
+.sidebar .daily-deals .deals-title{
     display: flex;
     justify-content: space-between;
 }
 
 
-.sidebar .daily-deals .deals-items h3{
+.sidebar .daily-deals .deals-title h3{
     color: var(--text-color);
     margin: 0 0 24px 0;
 }
 
+.daily-deals .deals-items-container{
+    display: flex;
+    flex-direction: column;
 
+}
+.daily-deals .deals-items-container .deals-items{
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    margin: 1px 0;
+    padding: 8px;
+}
+
+.daily-deals .deals-items-container .deals-items img{
+    height: 45px;
+}
+.daily-deals .deals-items-container .deals-text p{
+    color: var(--secondary-color);
+    font-size: 12px;
+    font-weight: 900;
+}
+.daily-deals .deals-items-container .deals-price{
+    color: var(--text-color);
+    font-size: 12px;
+    font-weight: 900;
+}
 /* ------------Products Section------- */
 main .products-section{
     margin: 24px 0 0 0;
