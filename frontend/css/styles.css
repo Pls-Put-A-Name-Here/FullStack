@@ -136,7 +136,6 @@ header{
     height: 92px;
     display: flex;
     align-items: center;
-    font-family: 'Poppins', sans-serif;
 }
 
 header a{
@@ -224,7 +223,26 @@ header nav .nav-items p{
 
 }
 
+.primary-btn{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 12px 24px;
+   border: 1px solid #3673BD;
+   border-radius: 10px;
+   background-color: #3673BD;
+   color: white;
+   cursor: pointer;
+   font-weight: 590;
+   font-size: 14px;
+   transition: all 0.3s ease-in-out;
+   margin-top: 12px;
+}
 
+.primary-btn:hover{
+    background-color: #073D7E;
+    border: 1px solid #073D7E;
+}
 @media screen and (max-width: 768px){
     .container{
         margin: 0 20px;

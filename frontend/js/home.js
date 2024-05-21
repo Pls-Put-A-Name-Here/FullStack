@@ -52,6 +52,11 @@ popularProducts.map(product => {
     ratingValue.textContent = product.rating; 
     productRatingDiv.appendChild(ratingValue);
     
+    const addToCart = document.createElement('a');
+    addToCart.href ="#";
+    addToCart.textContent = "+";
+    addToCart.classList.add('add-to-cart');
+    productDiv.appendChild(addToCart);
 
 
 

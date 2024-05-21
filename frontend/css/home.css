@@ -24,7 +24,16 @@ main .home-banner{
     align-items: center;
 }
 
-
+.home-banner .banner-text{
+    display: flex;
+    flex-direction: column;
+    font-size: calc(1rem + 0.7vw); 
+    font-weight: 900;
+}
+.home-banner .banner-text .primary-btn{
+    width: fit-content;
+    height: fit-content;
+}
 
 .home-banner .banner-image{
     height: 100%;
@@ -33,6 +42,96 @@ main .home-banner{
 .home-banner .banner-image img{
     height: 100%;
 }
+
+
+
+/* ------------Products Section------- */
+main .products-section{
+    margin: 64px 0;
+}
+
+
+main .products-section .products-container{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+main .products-section > p{
+    color: var(--secondary-color);
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.products-container .products{
+    min-width: 130px;
+    height: 220px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--border-radius);
+    justify-content: space-between;
+    box-shadow: var(--box-shadow);
+    padding: 8px;
+    position: relative;
+}
+
+.products-container .products .product-image{
+    overflow: hidden;
+    height: 65%;
+    text-align: center;
+}
+.products-container .products img{
+    height: 100%;
+
+}
+
+.products-container .products .product-rating{
+    display: flex;
+    color: gold;
+}
+.products-container .products .product-rating .empty-icon{
+    color: black;
+}
+
+.products-container .products .product-price{
+   font-size: 12px;
+}
+
+.products-container .products .product-rating .rating-value{
+    font-size: 0.7rem;
+    align-self: flex-end;
+    color: black;
+}
+
+main .option-container{
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 10px;
+    margin: 24px 0 0 0;
+}
+
+main .option-container select{
+    border: none;
+    background-color: #D6D6DA;
+    padding: 4px;
+    border-radius: var(--border-radius);
+}
+
+main .add-to-cart{
+    text-decoration: none;
+    font-size: 18px;
+
+    font-weight: 900;
+    background-color: #27B6B6;
+    padding: 0 4px;
+    color: #fff;
+    position: absolute;
+    display: block;
+    bottom: 10px;
+    right: 10px;
+}
+
 
 
 /* -----------side bar----------- */
@@ -54,7 +153,6 @@ main .sidebar{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
 }
 
 
@@ -105,65 +203,8 @@ main .sidebar{
     font-size: 12px;
     font-weight: 900;
 }
-/* ------------Products Section------- */
-main .products-section{
-    margin: 24px 0 0 0;
-}
 
 
-main .products-section .products-container{
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(4, 1fr);
-}
-
-
-.products-container .products{
-    min-width: 130px;
-    height: 220px;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    border-radius: var(--border-radius);
-    justify-content: space-between;
-    box-shadow: var(--box-shadow);
-    padding: 8px;
-}
-
-.products-container .products .product-image{
-    overflow: hidden;
-    height: 65%;
-    text-align: center;
-}
-.products-container .products img{
-    height: 100%;
-
-}
-
-.products-container .products .product-rating{
-    display: flex;
-    color: gold;
-}
-.products-container .products .product-rating .empty-icon{
-    color: black;
-}
-
-.products-container .products .product-price{
-   font-size: 12px;
-}
-
-.products-container .products .product-rating .rating-value{
-    font-size: 0.7rem;
-    align-self: flex-end;
-    color: black;
-}
-
-main .option-container{
-    display: flex;
-    /* justify-content: space-between; */
-    gap: 10px;
-    margin: 24px 0 0 0;
-}
 
 @media screen and (max-width:768px) {
     main .main-content{
@@ -171,10 +212,12 @@ main .option-container{
         
     }
     main .home-banner{
-        height: 20vh;
+        /* height: 20vh; */
         background-image: url('../assets/banner-image.png');
         background-repeat: no-repeat;
         background-blend-mode: multiply;
+        padding: 18px ;
+
     }
     main .main-content .banner-image{
         display: none;
@@ -188,7 +231,14 @@ main .option-container{
     main .products-section .products-container{
         grid-template-columns: repeat(2, 1fr);
     }
-    
+    .home-banner .banner-text{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+    }
     
 }
 
@@ -197,29 +247,30 @@ main .option-container{
 main #popular-products-section{
     position: relative;
     width: 100%;
-    margin: auto;
+    transition: transform 3.5s ease-in-out;
     /* overflow: hidden; */
 }
 
 main  #popular-products-container{
-    transition: transform 0.5s ease-in-out;
+    transition: transform 3.5s ease-in-out;
 }
 
 main  #popular-products-container .products {
     min-width: 23%; /* Show four products on desktop */
     box-sizing: border-box;
     display: none;/* Initially hide all products */
+
 }
 
 main  #popular-products-container .products.active {
-    display: block; /* Show only active products */
+    display: flex; /* Show only active products */
 }
 
 main  #popular-products-section button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: CECDDE;
+    background-color: #CECDDE;
     color: rgb(0, 0, 0);
     border: none;
     cursor: pointer;
