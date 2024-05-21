@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'product',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +83,7 @@ DATABASES = {
         "USER":"",
         "PASSWORD":"",
        # change host name to the name you see when you are trying to login to ssms
-        "HOST":"KIRKPC\SALEMSERVER",
+        "HOST":"JOEWISEPC\SQLEXPRESS",
         "PORT": "",
         "OPTIONS": {"driver": "ODBC Driver 17 for SQL Server"},
     }
