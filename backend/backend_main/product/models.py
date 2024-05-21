@@ -3,24 +3,26 @@ from django.db import models
 # Create your models here.
 
 class Brand(models.Model):
-    brand_name = models.CharField(max_length=100, null=False, blank=False)
-    country_of_origin = models.CharField(max_length=100)
-    year_established = models.IntegerField()
-    description = models.TextField()
-    created_date = models.DateField(auto_now_add=True)
-    last_edit_date = models.DateField(auto_now=True)
+    id = models.AutoField(primary_key=True,db_column='brdIdpk')
+    brand_name = models.CharField(max_length=100, null=False, blank=False,db_column='brdName')
+    country_of_origin = models.CharField(max_length=100,db_column='brdCountryOfOrigin')
+    year_established = models.IntegerField(db_column='brdYearEstablished')
+    description = models.TextField(db_column='brdDescription')
+    created_date = models.DateField(auto_now_add=True,db_column='brdCreatedDate')
+    last_edit_date = models.DateField(auto_now=True,db_column='brdLastEditDate')
     def __str__(self):
         return self.brand_name
     
     class Meta:
-        db_table="tblBrand"
+        db_table="tblBrands"
     
 class ProductCategory(models.Model):
-    category = models.CharField(max_length=100, null=False)
-    created_date = models.DateTimeField(auto_now=True)
-    last_edited_date = models.DateTimeField(auto_now=True)
+    id = models.AutoField(primary_key=True,db_column='ctgIdpk')
+    category = models.CharField(max_length=100, null=False,db_column='ctgName')
+    created_date = models.DateTimeField(auto_now=True,db_column='ctgCreatedDate')
+    last_edited_date = models.DateTimeField(auto_now=True,db_column='ctgLastEditDate')
     class Meta:
-        db_table="tblProductCategory"
+        db_table="tblProductCategories"
 
 class ProductSubCategory(models.Model):
     id = models.AutoField(primary_key=True,db_column='sctgIdpk')
@@ -29,7 +31,7 @@ class ProductSubCategory(models.Model):
     last_edit_date = models.DateTimeField(auto_now=True,db_column='sctgLastEditDate')
 
     class Meta:
-            db_table="tblProductSubCategory"   
+            db_table="tblProductSubCategories"   
 class Product(models.Model):
     id = models.AutoField(primary_key=True,db_column='prdIdpk')
     brand_id = models.ForeignKey(Brand, on_delete=models.CASCADE,db_column='prdBrdIdfk')
