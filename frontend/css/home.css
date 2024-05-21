@@ -117,15 +117,7 @@ main .products-section .products-container{
     grid-template-columns: repeat(4, 1fr);
 }
 
-main .products-section #popular-products-container{
-    display: flex;
-   overflow: hidden;
-   flex-wrap: nowrap;
 
-}
-main .products-section #popular-products-container .products{
-    width: 500px;
-}
 .products-container .products{
     min-width: 130px;
     height: 220px;
@@ -145,7 +137,7 @@ main .products-section #popular-products-container .products{
 }
 .products-container .products img{
     height: 100%;
-    /* width: 100%; */
+
 }
 
 .products-container .products .product-rating{
@@ -164,6 +156,13 @@ main .products-section #popular-products-container .products{
     font-size: 0.7rem;
     align-self: flex-end;
     color: black;
+}
+
+main .option-container{
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 10px;
+    margin: 24px 0 0 0;
 }
 
 @media screen and (max-width:768px) {
@@ -187,7 +186,60 @@ main .products-section #popular-products-container .products{
 
     /* ----------products--------- */
     main .products-section .products-container{
-    
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    
 }
+
+/* ------------------------------------------------ */
+/* --------------------------------------------------- */
+main #popular-products-section{
+    position: relative;
+    width: 100%;
+    margin: auto;
+    /* overflow: hidden; */
+}
+
+main  #popular-products-container{
+    transition: transform 0.5s ease-in-out;
+}
+
+main  #popular-products-container .products {
+    min-width: 23%; /* Show four products on desktop */
+    box-sizing: border-box;
+    display: none;/* Initially hide all products */
+}
+
+main  #popular-products-container .products.active {
+    display: block; /* Show only active products */
+}
+
+main  #popular-products-section button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: CECDDE;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 50%;
+    z-index: 999;
+}
+
+main  #popular-products-section button:disabled {
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: not-allowed;
+}
+
+main  #popular-products-section .prev-btn {
+    left: -20px;
+}
+
+main #popular-products-section .next-btn {
+    right: -20px;
+}
+
+/* ----------------------------------------------------- */
+/* ------------------------------------------------ */
