@@ -27,14 +27,27 @@ export const popularProducts = [
     },
     {
         image: '../assets/iphone-13.png',
-        name: 'Product 1',
+        name: 'Product 5',
         price: '10.00',
         rating: 4.0
     },
     
     {
         image: '../assets/iphone-13.png',
-        name: 'Product 1',
+        name: 'Product 6',
+        price: '10.00',
+        rating: 4.0
+    },
+    {
+        image: '../assets/iphone-13.png',
+        name: 'Product 7',
+        price: '10.00',
+        rating: 4.0
+    },
+    
+    {
+        image: '../assets/iphone-13.png',
+        name: 'Product 8',
         price: '10.00',
         rating: 4.0
     },

@@ -9,6 +9,7 @@ popularProducts.map(product => {
     // Create the product div
     const productDiv = document.createElement('div');
     productDiv.classList.add('products');
+    productDiv.classList.add('popsProd');
 
     // Create and populate the image div
     const productImageDiv = document.createElement('div');
@@ -122,3 +123,53 @@ featuredProducts.map(product => {
     // Append the product div to the products container
     featuredProductsContainer.appendChild(productDiv);
 });
+
+// -----------------------------------------------------------------------------------
+
+const carousel = document.getElementById('popular-products-container');
+const products = document.querySelectorAll('.popsProd');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+let index = 0;
+
+function showProducts() {
+    products.forEach((product, idx) => {
+        product.classList.remove('active');
+        const itemsToShow = window.innerWidth <= 768 ? 2 : 4;
+        if (idx >= index && idx < index + itemsToShow) {
+            product.classList.add('active');
+        }
+    });
+    updateButtonState();
+}
+
+function showNextProduct() {
+    if (index + 1 < products.length - (window.innerWidth <= 768 ? 2 : 4) + 1) {
+        index += 1;
+    }
+    showProducts();
+}
+
+function showPrevProduct() {
+    if (index - 1 >= 0) {
+        index -= 1;
+    }
+    showProducts();
+}
+
+function updateButtonState() {
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index >= products.length - (window.innerWidth <= 768 ? 2 : 4);
+}
+
+nextBtn.addEventListener('click', showNextProduct);
+prevBtn.addEventListener('click', showPrevProduct);
+
+// Initial display
+showProducts();
+
+window.addEventListener('resize', showProducts); // Update display on resize
+
+
+
+// -----------------------------------------------------------------------------------
