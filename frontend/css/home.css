@@ -182,7 +182,10 @@ main .sidebar{
     justify-content: space-between;
 }
 
-
+.sidebar .side-banner .side-banner-items a{
+    text-decoration: none;
+    color: #fff;
+}
 .sidebar .side-banner .side-banner-image img{
     height: 100%;
 }
@@ -202,6 +205,10 @@ main .sidebar{
 .sidebar .daily-deals .deals-title h3{
     color: var(--text-color);
     margin: 0 0 24px 0;
+}
+.sidebar .daily-deals .deals-title a{
+    text-decoration: none;
+    color: #000;
 }
 
 .daily-deals .deals-items-container{
