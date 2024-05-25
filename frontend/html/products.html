@@ -26,7 +26,7 @@
 
         .search-products-container input {
             border: 1px solid #cccccc00;
-            border-radius: 10px;
+            border-radius: 8px;
             height: 30px;
             width: 100%;
             /* width: 283px; */
@@ -48,6 +48,95 @@
             width: 16px;
             height: 16px;
 
+        }
+
+        .products-search-container {
+            margin-top: 32px;
+            color: var(--secondary-color);
+        }
+
+        .products-search-container>p {
+            font-size: 12px;
+        }
+
+
+        .products-search-container a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            margin: 0 0 0 12px;
+        }
+
+        .price-range-finder,
+        .category-container {
+            background-color: #fff;
+            padding: 8px;
+            line-height: 28px;
+            margin-top: 12px;
+        }
+
+        .price-range-finder {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .price-range-finder .price-display {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+
+        }
+
+        .price-range-finder .price-display p {
+            border-bottom: 1px solid #000;
+            border-top: 1px solid #000;
+            width: 100%;
+            text-align: center;
+        }
+
+        .price-range-finder button {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            margin-top: 12px;
+            width: fit-content;
+        }
+
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 5px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
         }
     </style>
 
@@ -93,27 +182,29 @@
 
 
                 </div>
-                <div class="category-container">
+                <div class="products-search-container">
                     <p>All Products-phones</p>
-                    <div>
+                    <div class="category-container">
                         <h3>Categories</h3>
                         <p><a href="">Electronics</a></p>
                         <p><a href="">Home & Office</a></p>
                         <p><a href="">Automobile</a></p>
                         <p><a href="">Games</a></p>
                         <p><a href="">Furniture</a></p>
+
+                    </div>
+                    <div class="price-range-finder">
+                        <h3>Price range</h3>
+                        <input type="range" min="10" max="3000" value="50" name="price-range" id="price-range-input">
+                        <div class="price-display">
+                            <p>10</p>
+                            <p id="price-range-value"></p>
+                            <p>3000</p>
+                        </div>
+                        <button>Apply</button>
                     </div>
                 </div>
-                <div class="price-range-finder">
-                    <h3>Price range</h3>
-                    <input type="range" min="10" max="3000" value="50" name="price-range" id="price-range-input">
-                    <div class="price-display">
-                        <p>10</p>
-                        <p id="price-range-value"></p>
-                        <p>3000</p>
-                    </div>
-                    <button>Apply</button>
-                </div>
+
             </aside>
             <section class="main-content">
                 <!-- -----------------popular products------------------ -->
