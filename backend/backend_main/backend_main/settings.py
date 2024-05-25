@@ -90,6 +90,7 @@ DATABASES = {
     'default': {
         "ENGINE": "mssql",
         "NAME": "dbEcommerceX",
+
         "USER": "",
         "PASSWORD": "",
         # change host name to the name you see when you are trying to login to ssms
