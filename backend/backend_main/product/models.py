@@ -14,25 +14,28 @@ class ProductImage(models.Model):
     last_edit_date = models.DateTimeField(auto_now=True,db_column='imgLastEditDate')
     
 class Brand(models.Model):
-    brand_name = models.CharField(max_length=100, null=False, blank=False)
-    country_of_origin = models.CharField(max_length=100)
-    year_established = models.IntegerField()
-    description = models.TextField()
-    created_date = models.DateField(auto_now_add=True)
-    last_edit_date = models.DateField(auto_now=True)
+    id = models.AutoField(primary_key=True,db_column='brdIdpk')
+    brand_name = models.CharField(max_length=100, null=False, blank=False,db_column='brdName')
+    country_of_origin = models.CharField(max_length=100,db_column='brdCountryOfOrigin')
+    year_established = models.IntegerField(db_column='brdYearEstablished')
+    description = models.TextField(db_column='brdDescription')
+    created_date = models.DateField(auto_now_add=True,db_column='brdCreatedDate')
+    last_edit_date = models.DateField(auto_now=True,db_column='brdLastEditDate')
     def __str__(self):
         return self.brand_name
     
     class Meta:
-        db_table="tblBrand"
+        db_table="tblBrands"
+
 
 # This is the model for tblProductCategory
 class ProductCategory(models.Model):
-    category = models.CharField(max_length=100, null=False)
-    created_date = models.DateTimeField(auto_now=True)
-    last_edited_date = models.DateTimeField(auto_now=True)
+    id = models.AutoField(primary_key=True,db_column='ctgIdpk')
+    category = models.CharField(max_length=100, null=False,db_column='ctgName')
+    created_date = models.DateTimeField(auto_now=True,db_column='ctgCreatedDate')
+    last_edited_date = models.DateTimeField(auto_now=True,db_column='ctgLastEditDate')
     class Meta:
-        db_table="tblProductCategory"
+        db_table="tblProductCategories"
 
 # Note: Django automatically creates an id (primary key) field unless specified otherwise 
 # This is the model for tblProductsSubCategory
@@ -43,7 +46,8 @@ class ProductSubCategory(models.Model):
     last_edit_date = models.DateTimeField(auto_now=True,db_column='sctgLastEditDate')
 
     class Meta:
-            db_table="tblProductSubCategory"   
+      db_table="tblProductSubCategories"   
+
 
 # This is the model for tblProducts
 class Product(models.Model):
