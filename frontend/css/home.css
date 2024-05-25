@@ -4,6 +4,26 @@
     box-sizing: border-box;
 }
 
+
+/* --------------myscrollbar--------------------- */
+/* Hide the default scrollbar */
+body {
+    scrollbar-width:thin;
+    scrollbar-color: #4E87CC;
+}
+
+/* Define scrollbar track styles */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background-color: #4E87CC;
+    border-radius: 5px;
+}
+
+/* -------------------------- */
 main{
     display: flex;
     justify-content: space-between;
