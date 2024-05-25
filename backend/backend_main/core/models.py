@@ -13,13 +13,18 @@ class UserTable(models.Model):
 
     def __str__(self):
         return self.user_name
+
+
 # This is the model for tblAddresses
 class UserAddressTable(models.Model):
     address_location = models.CharField(max_length=255)
     digital_address = models.CharField(max_length=255)
     house_address = models.CharField(max_length=255)
+
     def __str__(self):
         return self.digital_address
+
+
 # This is the model for tblCustomers
 # class CustomerTable(models.Model):
 #     user_id = models.ForeignKey(UserTable, on_delete=models.CASCADE)
@@ -74,7 +79,7 @@ class UserAddressTable(models.Model):
 #     image = models.ImageField(upload_to='product_images/',db_column='imgURL')
 #     upload_date = models.DateTimeField(auto_now_add=True,db_column='imgUploadDate')
 #     last_edit_date = models.DateTimeField(auto_now=True,db_column='imgLastEditDate')
-    
+
 # This is the model for tblProductDetails
 # class ProductDetails(models.Model):
 #     id = models.AutoField(primary_key=True,db_column='prdDetailsIdpk')
@@ -87,7 +92,7 @@ class UserAddressTable(models.Model):
 #     techinical_specifications = models.TextField(db_column='prdTechnicalSpecifications')
 #     created_date = models.DateTimeField(auto_now_add=True,db_column='prdCreatedDate')
 #     last_edit_date = models.DateTimeField(auto_now=True,db_column='prdLastEditDate')
-    
+
 # # This is the model for tblProductVariants
 # class ProductVariant(models.Model):
 #     id = models.AutoField(primary_key=True,db_column='prvIdpk')
@@ -101,9 +106,9 @@ class UserAddressTable(models.Model):
 #     created_date = models.DateTimeField(auto_now_add=True,db_column='prvCreatedDate')
 #     last_edit_date = models.DateTimeField(auto_now=True,db_column='prvLastEditDate') 
 
-#Kirk ends
+# Kirk ends
 
-#Joseph starts
+# Joseph starts
 # # This is the model for Order status table
 # class OrderStatusTable(models.Model):
 #     order_status_name = models.CharField(max_length=50)
@@ -123,6 +128,7 @@ class PaymentStatus(models.Model):
 
     def __str__(self):
         return self.status_name
+
 
 # This is the model for Order table
 # class OrderTable(models.Model):
@@ -163,10 +169,10 @@ class PaymentStatus(models.Model):
 
 #     def __str__(self):
 #         return self.supplier_name
-#Joseph ends
-#Jonathan starts
+# Joseph ends
+# Jonathan starts
 
-#This the model for tb1Inventory
+# This the model for tb1Inventory
 # class Inventory(models.Model):
 #     invIdpk = models.AutoField(primary_key=True)
 #     invPrdIdfk = models.ForeignKey('product.Product', on_delete=models.CASCADE)
@@ -178,15 +184,17 @@ class PaymentStatus(models.Model):
 #     invExpirationDate = models.DateTimeField()
 #     invLastUpdateDate = models.DateTimeField(auto_now=True)
 
-#This the models for tblPaymentMethods
+# This the models for tblPaymentMethods
 class PaymentMethod(models.Model):
     pmtIdpk = models.AutoField(primary_key=True)
     pmtName = models.CharField(max_length=100)
     pmtDescription = models.CharField(max_length=255)
     pmtCreatedDate = models.DateTimeField(auto_now_add=True)
-    pmtLastUpdateDate = models.DateTimeField(auto_now=True)    
+    pmtLastUpdateDate = models.DateTimeField(auto_now=True)
 
-#This the models for    tblPurchase
+# This the models for    tblPurchase
+
+
 class Purchase(models.Model):
     pchIdpk = models.AutoField(primary_key=True)
     pchCustIdfk = models.ForeignKey('customer.CustomerTable', on_delete=models.CASCADE)
@@ -197,7 +205,7 @@ class Purchase(models.Model):
     pchCreatedDate = models.DateTimeField(auto_now_add=True)
     pchLastUpdateDate = models.DateTimeField(auto_now=True)
 
-#This the models for tblCarts
+# This the models for tblCarts
 # class Cart(models.Model):
 #     crtIdpk = models.AutoField(primary_key=True)
 #     crtCustomerIdfk = models.ForeignKey('Customer', on_delete=models.CASCADE)
@@ -212,4 +220,4 @@ class Purchase(models.Model):
 #     crtItemQuantity = models.IntegerField()
 #     crtItemUnitPrice = models.DecimalField(max_digits=10, decimal_places=2)
 
-#-- Jonathan Ends
+# -- Jonathan Ends
