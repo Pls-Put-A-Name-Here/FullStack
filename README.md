@@ -1,4 +1,4 @@
-# FullStack Repository
+# FullStack repository
 
 Welcome to the `FullStack` repository under the organization `pls-put-a-name-here`. This repository is dedicated to the development of the EcommerceX project. Here's a guide on how to contribute effectively using a feature branch workflow.
 

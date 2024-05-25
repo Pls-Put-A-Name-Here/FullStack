@@ -1,4 +1,3 @@
-
 """
 Django settings for backend_main project.
 
@@ -16,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -28,6 +26,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# CORS
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000"
+    ]
 
 # Application definition
 
@@ -38,10 +41,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'product',
+    'corsheaders',
+    'product.apps.ProductConfig',
+    'cart.apps.CartConfig',
+    'core.apps.CoreConfig',
+    'customer.apps.CustomerConfig',
+    'order.apps.OrderConfig',
+    'inventory.apps.InventoryConfig',
+    'supplier.apps.SupplierConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -71,7 +83,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend_main.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -79,15 +90,15 @@ DATABASES = {
     'default': {
         "ENGINE": "mssql",
         "NAME": "dbEcommerceX",
-        "USER":"",
-        "PASSWORD":"",
-       # change host name to the name you see when you are trying to login to ssms
-        "HOST": 'DESKTOP-FQ3EPQ4',
-        # "PORT": "",
+
+        "USER": "",
+        "PASSWORD": "",
+        # change host name to the name you see when you are trying to login to ssms
+        "HOST": "KIRKPC\SALEMSERVER",
+        "PORT": "",
         "OPTIONS": {"driver": "ODBC Driver 17 for SQL Server"},
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -107,7 +118,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -119,7 +129,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
@@ -129,4 +138,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
