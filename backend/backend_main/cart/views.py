@@ -27,3 +27,10 @@ def list_or_add(request):
         cart_model = models.Cart.objects.all()
         serializer = serializers.CartSerializer(cart_model, many=True)
         return Response(serializer.data)
+    if request.method == 'POST':
+        data = JSONParser.parse(request)
+        serializer = serializers.CartSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return(Response(serializer.data, status=201))
+        return(Response(serializer.errors, status=400))

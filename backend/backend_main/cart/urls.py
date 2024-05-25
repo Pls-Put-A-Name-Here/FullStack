@@ -6,5 +6,5 @@ from . import views
 # router.register(views.list_or_add, basename="cart")
 
 urlpatterns = [
-    path('', views.list_or_add, name='list-or-add' ),
+    path('cart/', views.list_or_add, name='list-or-add' ),
 ]
