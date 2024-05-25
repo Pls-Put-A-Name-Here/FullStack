@@ -82,8 +82,8 @@ DATABASES = {
         "USER":"",
         "PASSWORD":"",
        # change host name to the name you see when you are trying to login to ssms
-        "HOST":"KIRKPC\SALEMSERVER",
-        "PORT": "",
+        "HOST": 'DESKTOP-FQ3EPQ4',
+        # "PORT": "",
         "OPTIONS": {"driver": "ODBC Driver 17 for SQL Server"},
     }
 }
