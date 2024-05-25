@@ -1,17 +1,13 @@
 from django.db import models
 
-# Create your models here.
-#This the models for tblCarts
-class Cart(models.Model):
-    crtIdpk = models.AutoField(primary_key=True, db_column='crtIdpk')
-    crtCustomerIdfk = models.ForeignKey('customer.CustomerTable', on_delete=models.CASCADE, db_column='crtCustomerIdfk')
-    crtCreatedAt = models.DateTimeField(auto_now_add=True, db_column='crtCreatedAt')
-    crtStatus = models.CharField(max_length=50, default='Active', db_column='crtStatus') 
 
-    class Meta:
-        db_table="tblCarts"
-        managed = False
-      
+# Create your models here.
+# This the models for tblCarts
+class Cart(models.Model):
+    crtIdpk = models.AutoField(primary_key=True)
+    crtCustomerIdfk = models.ForeignKey('customer.CustomerTable', on_delete=models.CASCADE)
+    crtCreatedAt = models.DateTimeField(auto_now_add=True)
+    crtStatus = models.CharField(max_length=50, default='Active')     
 
 #This the models for tblCartItems
 class CartItem(models.Model):
