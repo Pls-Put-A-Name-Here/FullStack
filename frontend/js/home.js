@@ -116,7 +116,11 @@ featuredProducts.map(product => {
     ratingValue.textContent = product.rating; 
     productRatingDiv.appendChild(ratingValue);
     
-
+    const addToCart = document.createElement('a');
+    addToCart.href ="#";
+    addToCart.textContent = "+";
+    addToCart.classList.add('add-to-cart');
+    productDiv.appendChild(addToCart);
 
 
     // Append all the parts to the product div
@@ -129,7 +133,9 @@ featuredProducts.map(product => {
     featuredProductsContainer.appendChild(productDiv);
 });
 
-// -----------------------------------------------------------------------------------
+
+
+// -----------------------carousel------------------------------------------------------------
 
 const carousel = document.getElementById('popular-products-container');
 const products = document.querySelectorAll('.popsProd');
