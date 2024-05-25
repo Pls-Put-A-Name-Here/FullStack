@@ -8,9 +8,11 @@ main{
     display: flex;
     justify-content: space-between;
     gap: 4px;
+    position: relative;
 }
 main .main-content{
     width: 68%;
+    position: relative;
 }
 
 main .home-banner{
@@ -121,22 +123,27 @@ main .option-container select{
 main .add-to-cart{
     text-decoration: none;
     font-size: 18px;
-
+    border-radius: 4px;
     font-weight: 900;
     background-color: #27B6B6;
-    padding: 0 4px;
+    padding: 2px 6px;
     color: #fff;
     position: absolute;
     display: block;
     bottom: 10px;
     right: 10px;
+    align-self: center;
+    justify-self: center;
 }
 
 
 
-/* -----------side bar----------- */
+/* --------------------------------------side bar------------------------------------------- */
 main .sidebar{  
-    width: 28%;   
+    width: 28%; 
+    position: sticky;
+    top: 4px;
+    height: fit-content;
 }
 
 
@@ -160,7 +167,7 @@ main .sidebar{
     height: 100%;
 }
 
-/* --------daily deals------ */
+/* --------daily deals------------- */
 .sidebar .daily-deals{
     margin: 40px 0 0 0;
 }
@@ -205,6 +212,34 @@ main .sidebar{
 }
 
 
+
+/* ----------------------pagination----------------------- */
+#home-pagination-container{  
+    text-align: center;
+}
+#home-pagination-container .pagination {
+    display: inline-block;
+  }
+  
+  #home-pagination-container .pagination a {
+    color: #27B6B6;
+    float: left;
+    font-weight: 700;
+    padding: 6px 13px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ffffff00;
+    margin: 0 4px;
+    background-color: #fff;
+    box-shadow: 0px 2px 12px #00000019;
+  }
+  
+  #home-pagination-container .pagination a.active {
+    background-color: #27B6B6;
+    color: white;
+    border: 1px solid #27b6b67a;
+  }
+  #home-pagination-container .pagination a:hover:not(.active) {background-color: #ddd;}
 
 @media screen and (max-width:768px) {
     main .main-content{

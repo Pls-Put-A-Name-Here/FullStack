@@ -1,20 +1,21 @@
 
 // products.js
+
 export const popularProducts = [
     {
-        image: '../assets/iphone-13.png',
+        image: '../assets/blueHeadset.png',
         name: 'Product 1',
         price: '10.00',
         rating: 4.0
     },
     {
-        image: '../assets/black-airpods.png',
+        image: '../assets/blackHeadset.png',
         name: 'Product 2',
         price: '20.00',
         rating: 3.9
     },
     {
-        image: '../assets/black-airpods.png',
+        image: '../assets/iphone-13.png',
         name: 'Product 3',
         price: '15.00',
         rating: 3.9
@@ -33,7 +34,7 @@ export const popularProducts = [
     },
     
     {
-        image: '../assets/iphone-13.png',
+        image: '../assets/blackHeadset.png',
         name: 'Product 6',
         price: '10.00',
         rating: 4.0
@@ -46,7 +47,7 @@ export const popularProducts = [
     },
     
     {
-        image: '../assets/iphone-13.png',
+        image: '../assets/blackHeadset.png',
         name: 'Product 8',
         price: '10.00',
         rating: 4.0
@@ -63,7 +64,7 @@ export const featuredProducts = [
         rating: 4.0
     },
     {
-        image: '../assets/black-airpods.png',
+        image: '../assets/blackHeadset.png',
         name: 'Product 2',
         price: '20.00',
         rating: 3.9
@@ -99,7 +100,7 @@ export const featuredProducts = [
         rating: 3.9
     },
     {
-        image: '../assets/black-airpods.png',
+        image: '../assets/blackHeadset.png',
         name: 'Product 4',
         price: '20.00',
         rating: 1.9
@@ -116,13 +117,13 @@ export const featuredProducts = [
         rating: 3.9
     },
     {
-        image: '../assets/black-airpods.png',
+        image: '../assets/blackHeadset.png',
         name: 'Product 3',
         price: '15.00',
         rating: 3.9
     },
     {
-        image: '../assets/black-airpods.png',
+        image: '../assets/blueHeadset.png',
         name: 'Product 4',
         price: '20.00',
         rating: 1.9
