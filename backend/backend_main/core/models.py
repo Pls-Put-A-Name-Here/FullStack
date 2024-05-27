@@ -4,25 +4,34 @@ from django.db import models
 # Create your models here.
 # Bright Start
 # This is the model for tblUsers
-class UserTable(models.Model):
-    user_name = models.CharField(max_length=50)
-    user_password = models.CharField(max_length=50)
-    user_email = models.CharField(max_length=50)
-    user_date_of_birth = models.DateField()
-    user_phone_number = models.CharField(max_length=50)
+class User(models.Model):
+    user_id = models.AutoField(primary_key=True,db_column='usrIdpk')
+    user_name = models.CharField(max_length=50,db_column='usrName')
+    user_password = models.CharField(max_length=50,db_column='usrPassword')
+    user_email = models.CharField(max_length=50,db_column='usrEmail')
+    user_date_of_birth = models.DateField(db_column='usrDoB')
+    user_phone_number = models.CharField(max_length=50,db_column='usrPhoneNumber')
 
     def __str__(self):
         return self.user_name
+    class Meta:
+        db_table = "tblUsers"
+        managed = False
 
 
 # This is the model for tblAddresses
-class UserAddressTable(models.Model):
-    address_location = models.CharField(max_length=255)
-    digital_address = models.CharField(max_length=255)
-    house_address = models.CharField(max_length=255)
+class Address(models.Model):
+    address_id = models.AutoField(primary_key=True,db_column='adrIdpk')
+    address_location = models.CharField(max_length=255,db_column='adrLocation')
+    digital_address = models.CharField(max_length=255,db_column='adrDigitalAddress')
+    house_address = models.CharField(max_length=255,db_column='adrHouseAddress')
 
     def __str__(self):
         return self.digital_address
+    
+    class Meta:
+        db_table="tblAddresses"
+        managed = False
 
 
 # This is the model for tblCustomers
@@ -128,6 +137,10 @@ class PaymentStatus(models.Model):
 
     def __str__(self):
         return self.status_name
+    
+    class Meta:
+        db_table='tblPaymentStatus'
+        managed = False
 
 
 # This is the model for Order table
@@ -191,19 +204,27 @@ class PaymentMethod(models.Model):
     pmtDescription = models.CharField(max_length=255)
     pmtCreatedDate = models.DateTimeField(auto_now_add=True)
     pmtLastUpdateDate = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        db_table='tblPaymentMethods'
+        managed=False
 
 # This the models for    tblPurchase
 
 
 class Purchase(models.Model):
     pchIdpk = models.AutoField(primary_key=True)
-    pchCustIdfk = models.ForeignKey('customer.CustomerTable', on_delete=models.CASCADE)
+    pchCustIdfk = models.ForeignKey('customer.Customer', on_delete=models.CASCADE)
     pchPurchaseDate = models.DateTimeField()
     pchTotalAmount = models.DecimalField(max_digits=10, decimal_places=2)
     pchPmtIdfk = models.ForeignKey('PaymentMethod', on_delete=models.CASCADE)
     pchPstIdfk = models.ForeignKey('PaymentStatus', on_delete=models.CASCADE)
     pchCreatedDate = models.DateTimeField(auto_now_add=True)
     pchLastUpdateDate = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        db_table='tblPurchases'
+        managed=False
 
 # This the models for tblCarts
 # class Cart(models.Model):

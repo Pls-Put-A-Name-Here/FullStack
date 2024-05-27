@@ -16,6 +16,7 @@ class ProductImage(models.Model):
 
     class Meta:
         db_table = "tblProductImages"
+        managed=False
 
 
 class Brand(models.Model):
@@ -32,6 +33,8 @@ class Brand(models.Model):
 
     class Meta:
         db_table = "tblBrands"
+        managed=False
+        
 
 
 # This is the model for tblProductCategory
@@ -46,6 +49,9 @@ class ProductCategory(models.Model):
 
     class Meta:
         db_table = "tblProductCategories"
+        managed=False
+        
+        
 
 
 # Note: Django automatically creates an id (primary key) field unless specified otherwise
@@ -61,6 +67,8 @@ class ProductSubCategory(models.Model):
 
     class Meta:
         db_table = "tblProductSubCategories"
+        managed=False
+        
 
     # This is the model for tblProducts
 
@@ -79,6 +87,9 @@ class Product(models.Model):
 
     class Meta:
         db_table = "tblProducts"
+        managed=False
+        
+        
 
 
 # This is the model for tblProductVariants

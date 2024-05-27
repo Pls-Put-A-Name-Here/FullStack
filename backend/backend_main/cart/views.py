@@ -28,7 +28,7 @@ def list_or_add(request):
         serializer = serializers.CartSerializer(cart_model, many=True)
         return Response(serializer.data)
     if request.method == 'POST':
-        data = JSONParser.parse(request)
+        data = request.data
         serializer = serializers.CartSerializer(data=data)
         if serializer.is_valid():
             serializer.save()

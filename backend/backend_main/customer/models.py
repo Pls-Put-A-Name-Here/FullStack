@@ -3,6 +3,11 @@ from core.models import *
 
 # Create your models here.
 # This is the model for tblCustomers
-class CustomerTable(models.Model):
-    user_id = models.ForeignKey(UserTable, on_delete=models.CASCADE)
-    address_id = models.ForeignKey(UserAddressTable, on_delete=models.CASCADE)
+class Customer(models.Model):
+    customer_id = models.AutoField(primary_key=True,db_column='custIdpk')
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE,db_column='custUsrIdfk')
+    address_id = models.ForeignKey(Address, on_delete=models.CASCADE,db_column='custAdrIdfk')
+    
+    class Meta:
+        db_table='tblCustomers'
+        managed=False
