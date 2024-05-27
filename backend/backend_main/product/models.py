@@ -13,26 +13,36 @@ class ProductImage(models.Model):
     upload_date = models.DateTimeField(auto_now_add=True,db_column='imgUploadDate')
     last_edit_date = models.DateTimeField(auto_now=True,db_column='imgLastEditDate')
     
+    class Meta:
+        db_table="tblProductImages"
+        managed = False
+    
 class Brand(models.Model):
-    brand_name = models.CharField(max_length=100, null=False, blank=False)
-    country_of_origin = models.CharField(max_length=100)
-    year_established = models.IntegerField()
-    description = models.TextField()
-    created_date = models.DateField(auto_now_add=True)
-    last_edit_date = models.DateField(auto_now=True)
+    brdIdpk = models.AutoField(primary_key=True, db_column='brdIdpk')
+    brdName = models.CharField(max_length=100, null=False, blank=False, db_column='brdName')
+    brdCountryOfOrigin = models.CharField(max_length=100, db_column='brdCountryOfOrigin')
+    brdYearEstablished = models.IntegerField(db_column='brdYearEstablished')
+    brdDescription = models.TextField(db_column='brdDescription')
+    brdCreatedDate = models.DateField(auto_now_add=True, db_column='brdCreatedDate')
+    brdLastEditDate = models.DateField(auto_now=True, db_column='brdLastEditDate')
+
     def __str__(self):
-        return self.brand_name
+        return self.brdName
     
     class Meta:
-        db_table="tblBrand"
+        db_table = "tblBrands"
+        managed = False
 
 # This is the model for tblProductCategory
 class ProductCategory(models.Model):
-    category = models.CharField(max_length=100, null=False)
-    created_date = models.DateTimeField(auto_now=True)
-    last_edited_date = models.DateTimeField(auto_now=True)
+    ctgIdpk = models.AutoField(primary_key=True, db_column='ctgIdpk')
+    ctgName = models.CharField(max_length=100, null=False, db_column='ctgName')
+    ctgCreatedDate = models.DateTimeField(auto_now=True, db_column='ctgCreatedDate')
+    ctgLastEditDate = models.DateTimeField(auto_now=True, db_column='ctgLastEditDate')
+
     class Meta:
-        db_table="tblProductCategory"
+        db_table = "tblProductCategories"
+        managed = False
 
 # Note: Django automatically creates an id (primary key) field unless specified otherwise 
 # This is the model for tblProductsSubCategory
@@ -43,7 +53,8 @@ class ProductSubCategory(models.Model):
     last_edit_date = models.DateTimeField(auto_now=True,db_column='sctgLastEditDate')
 
     class Meta:
-            db_table="tblProductSubCategory"   
+            db_table="tblProductSubCategory" 
+            managed = False  
 
 # This is the model for tblProducts
 class Product(models.Model):
@@ -60,6 +71,7 @@ class Product(models.Model):
     
     class Meta:
         db_table="tblProducts"
+        managed = False
 
 
 # This is the model for tblProductVariants
@@ -75,6 +87,12 @@ class ProductVariant(models.Model):
     created_date = models.DateTimeField(auto_now_add=True,db_column='prvCreatedDate')
     last_edit_date = models.DateTimeField(auto_now=True,db_column='prvLastEditDate') 
 
+    class Meta:
+        db_table="tblProductVariants"
+        managed = False
+
+
+
 # This is the model for tblProductDetails
 class ProductDetails(models.Model):
     id = models.AutoField(primary_key=True,db_column='prdDetailsIdpk')
@@ -89,4 +107,8 @@ class ProductDetails(models.Model):
     techinical_specifications = models.TextField(db_column='prdTechnicalSpecifications')
     created_date = models.DateTimeField(auto_now_add=True,db_column='prdCreatedDate')
     last_edit_date = models.DateTimeField(auto_now=True,db_column='prdLastEditDate')
+
+    class Meta:
+        db_table="tblProductDetails"
+        managed = False
     

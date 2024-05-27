@@ -3,9 +3,11 @@ from . import models
 
 
 class CartSerializer(serializers.ModelSerializer):
-    model = models.Cart
-    fields = '__all__'
+    class Meta:
+        model = models.Cart
+        fields = '__all__'
 
 class CartItemSerializer(serializers.ModelSerializer):
-    model = models.CartItem
-    fields = '__all__'
+    class Meta:
+        model = models.CartItem
+        fields = '__all__'
