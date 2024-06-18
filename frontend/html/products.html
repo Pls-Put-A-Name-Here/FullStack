@@ -1,261 +1,262 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Products</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/home.css">
-    <link rel="shortcut icon" href="../assets/logo.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="shortcut icon" href="../assets/logo.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        main {
-            margin: 40px 0 0 0;
-        }
+      main {
+        margin: 40px 0 0 0;
+      }
 
-        .search-products-container {
-            position: relative;
+      .search-products-container {
+        position: relative;
+      }
 
-        }
+      .search-products-container input {
+        border: 1px solid #cccccc00;
+        border-radius: 8px;
+        height: 30px;
+        width: 100%;
+        /* width: 283px; */
+        box-shadow: var(--box-shadow);
+        padding: 0 12px 0 40px;
+        font-style: italic;
+      }
 
-        .search-products-container input {
-            border: 1px solid #cccccc00;
-            border-radius: 8px;
-            height: 30px;
-            width: 100%;
-            /* width: 283px; */
-            box-shadow: var(--box-shadow);
-            padding: 0 12px 0 40px;
-            font-style: italic;
-        }
+      .search-products-container input:focus {
+        border: 1px solid var(--primary-color);
+      }
 
-        .search-products-container input:focus {
-            border: 1px solid var(--primary-color);
-        }
+      .search-products-container img {
+        position: absolute;
+        left: 10px;
+        top: 7px;
+        cursor: pointer;
+        width: 16px;
+        height: 16px;
+      }
 
+      .products-search-container {
+        margin-top: 32px;
+        color: var(--secondary-color);
+      }
 
-        .search-products-container img {
-            position: absolute;
-            left: 10px;
-            top: 7px;
-            cursor: pointer;
-            width: 16px;
-            height: 16px;
+      .products-search-container > p {
+        font-size: 12px;
+      }
 
-        }
+      .products-search-container a {
+        text-decoration: none;
+        color: var(--secondary-color);
+        margin: 0 0 0 12px;
+      }
 
-        .products-search-container {
-            margin-top: 32px;
-            color: var(--secondary-color);
-        }
+      .price-range-finder,
+      .category-container {
+        background-color: #fff;
+        padding: 8px;
+        line-height: 28px;
+        margin-top: 12px;
+      }
 
-        .products-search-container>p {
-            font-size: 12px;
-        }
+      .price-range-finder {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
 
+      .price-range-finder .price-display {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
 
-        .products-search-container a {
-            text-decoration: none;
-            color: var(--secondary-color);
-            margin: 0 0 0 12px;
-        }
+      .price-range-finder .price-display p {
+        border-bottom: 1px solid #000;
+        border-top: 1px solid #000;
+        width: 100%;
+        text-align: center;
+      }
 
-        .price-range-finder,
-        .category-container {
-            background-color: #fff;
-            padding: 8px;
-            line-height: 28px;
-            margin-top: 12px;
-        }
+      .price-range-finder button {
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+        margin-top: 12px;
+        width: fit-content;
+      }
 
-        .price-range-finder {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
+      input[type="range"] {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 5px;
+        border-radius: 5px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: 0.2s;
+        transition: opacity 0.2s;
+      }
 
-        .price-range-finder .price-display {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
+      input[type="range"]:hover {
+        opacity: 1;
+      }
 
-        }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        cursor: pointer;
+      }
 
-        .price-range-finder .price-display p {
-            border-bottom: 1px solid #000;
-            border-top: 1px solid #000;
-            width: 100%;
-            text-align: center;
-        }
+      input[type="range"]::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        cursor: pointer;
+      }
 
-        .price-range-finder button {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 8px 16px;
-            border: none;
-            cursor: pointer;
-            margin-top: 12px;
-            width: fit-content;
-        }
-
-
-        input[type="range"] {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 5px;
-            border-radius: 5px;
-            background: #d3d3d3;
-            outline: none;
-            opacity: 0.7;
-            -webkit-transition: .2s;
-            transition: opacity .2s;
-        }
-
-        input[type="range"]:hover {
-            opacity: 1;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            cursor: pointer;
-        }
-
-        input[type="range"]::-moz-range-thumb {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            cursor: pointer;
-        }
-
-        input[type="input"]::-webkit-slider-runnable-track{
-            background-color: #000;
-        }
+      input[type="input"]::-webkit-slider-runnable-track {
+        background-color: #000;
+      }
     </style>
+  </head>
 
-
-</head>
-
-<body>
+  <body>
     <div class="container">
-        <!-- ---------------------header---------------- -->
-        <header>
-            <nav>
-                <div class="logo">
-                    <a href="./index.html">
-                        <img src="../assets/logo.png" alt="logo">
-                        <h3>Jonas Store</h3>
-                    </a>
-                </div>
-                <div class="navigation">
-                    <div class="nav-items">
-                        <a href="./cart.html">
-                            <img src="../assets/bag-2.png" alt="cartImg">
-                            <p>Cart</p>
-                        </a>
-                    </div>
-                    <div class="nav-items">
-                        <a href="./user.html">
-                            <img src="../assets/user.png" alt="userIcon">
-                            <p>Account</p>
-                        </a>
-                    </div>
-                </div>
-            </nav>
-        </header>
-
-        <!-- -------------------------main------------------- -->
-        <main>
-            <!-- -----------------aside------------------------ -->
-            <aside class="sidebar">
-                <div class="search-products-container">
-                    <img src="../assets/search-normal.png" alt="searchIcon" class="search-products-btn"
-                        onclick="toggleSize()" />
-                    <input type="search" name="search" class="search-product-field" placeholder="search products">
-
-
-                </div>
-                <div class="products-search-container">
-                    <p>All Products-phones</p>
-                    <div class="category-container">
-                        <h3>Categories</h3>
-                        <p><a href="">Electronics</a></p>
-                        <p><a href="">Home & Office</a></p>
-                        <p><a href="">Automobile</a></p>
-                        <p><a href="">Games</a></p>
-                        <p><a href="">Furniture</a></p>
-
-                    </div>
-                    <div class="price-range-finder">
-                        <h3>Price range</h3>
-                        <input type="range" min="10" max="3000" value="50" name="price-range" id="price-range-input">
-                        <div class="price-display">
-                            <p>10</p>
-                            <p id="price-range-value"></p>
-                            <p>3000</p>
-                        </div>
-                        <button>Apply</button>
-                    </div>
-                </div>
-
-            </aside>
-            <section class="main-content">
-                <!-- -----------------popular products------------------ -->
-                <div class="products-container" id="popular-products-container" style="display: none;"></div>
-                <div class="products-section" style="margin-top: 0;">
-                    <div class="products-container" id="featured-products-container">
-
-                    </div>
-                </div>
-
-            </section>
-
-
-        </main>
-        <div id="home-pagination-container">
-            <div class="pagination">
-                <a href="#">&laquo;</a>
-                <a href="./index.html">1</a>
-                <a href="#" class="active">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">&raquo;</a>
+      <!-- ---------------------header---------------- -->
+      <header>
+        <nav>
+          <div class="logo">
+            <a href="./index.html">
+              <img src="../assets/logo.png" alt="logo" />
+              <h3>Jonas Store</h3>
+            </a>
+          </div>
+          <div class="navigation">
+            <div class="nav-items">
+              <a href="./cart.html">
+                <img src="../assets/bag-2.png" alt="cartImg" />
+                <p>Cart</p>
+              </a>
             </div>
+            <div class="nav-items">
+              <a href="./user.html">
+                <img src="../assets/user.png" alt="userIcon" />
+                <p>Account</p>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <!-- -------------------------main------------------- -->
+      <main>
+        <!-- -----------------aside------------------------ -->
+        <aside class="sidebar">
+          <div class="search-products-container">
+            <img
+              src="../assets/search-normal.png"
+              alt="searchIcon"
+              class="search-products-btn"
+              onclick="toggleSize()"
+            />
+            <input
+              type="search"
+              name="search"
+              class="search-product-field"
+              placeholder="search products"
+            />
+          </div>
+          <div class="products-search-container">
+            <p>All Products-phones</p>
+            <div class="category-container">
+              <h3>Categories</h3>
+              <p><a href="">Electronics</a></p>
+              <p><a href="">Home & Office</a></p>
+              <p><a href="">Automobile</a></p>
+              <p><a href="">Games</a></p>
+              <p><a href="">Furniture</a></p>
+            </div>
+            <div class="price-range-finder">
+              <h3>Price range</h3>
+              <input
+                type="range"
+                min="10"
+                max="3000"
+                value="50"
+                name="price-range"
+                id="price-range-input"
+              />
+              <div class="price-display">
+                <p>10</p>
+                <p id="price-range-value"></p>
+                <p>3000</p>
+              </div>
+              <button>Apply</button>
+            </div>
+          </div>
+        </aside>
+        <section class="main-content">
+          <!-- -----------------popular products------------------ -->
+          <div
+            class="products-container"
+            id="popular-products-container"
+            style="display: none"
+          ></div>
+          <div class="products-section" style="margin-top: 0">
+            <div
+              class="products-container"
+              id="featured-products-container"
+            ></div>
+          </div>
+        </section>
+      </main>
+      <div id="home-pagination-container">
+        <div class="pagination">
+          <a href="#">&laquo;</a>
+          <a href="./index.html">1</a>
+          <a href="#" class="active">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">5</a>
+          <a href="#">&raquo;</a>
         </div>
+      </div>
 
-
-        <!-- ----------------------------footer---------------- -->
-        <footer>
-            <!-- footer here -->
-        </footer>
-
+      <!-- ----------------------------footer---------------- -->
+      <footer>
+        <!-- footer here -->
+      </footer>
     </div>
-
 
     <script src="../js/script.js"></script>
     <script type="module" src="../js/home.js"></script>
 
     <script>
-        const rangeInput = document.getElementById('price-range-input');
-        const rangeValue = document.getElementById('price-range-value');
+      const rangeInput = document.getElementById("price-range-input");
+      const rangeValue = document.getElementById("price-range-value");
 
-        rangeInput.addEventListener('input', () => {
-            rangeValue.textContent = rangeInput.value;
-        });
-
+      rangeInput.addEventListener("input", () => {
+        rangeValue.textContent = rangeInput.value;
+      });
     </script>
-</body>
-
+  </body>
 </html>

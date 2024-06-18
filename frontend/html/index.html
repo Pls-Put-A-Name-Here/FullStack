@@ -1,182 +1,189 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FullStack Commerce</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/home.css">
-    <link rel="shortcut icon" href="../assets/logo.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="shortcut icon" href="../assets/logo.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="container">
-        <!-- ---------------------header---------------- -->
-        <header>
-            <nav>
-                <div class="logo">
-                    <a href="#">
-                        <img src="../assets/logo.png" alt="logo">
-                        <h3>Jonas Store</h3>
-                    </a>
-                </div>
-                <div class="navigation">
-                    <div class="search">
-                        <input type="search" name="search" class="search-field" placeholder="search products">
-                        <img src="../assets/search-normal.png" alt="searchIcon" class="search-btn"
-                            onclick="toggleSize()">
-
-                    </div>
-                    <div class="nav-items">
-                        <a href="./cart.html">
-                            <img src="../assets/bag-2.png" alt="cartImg">
-                            <p>Cart</p>
-                        </a>
-                    </div>
-                    <div class="nav-items">
-                        <a href="./user.html">
-                            <img src="../assets/user.png" alt="userIcon">
-                            <p>Account</p>
-                        </a>
-                    </div>
-                </div>
-            </nav>
-        </header>
-
-        <!-- -------------------------main------------------- -->
-        <main>
-            <section class="main-content">
-                <!-- ------------home banner----------------- -->
-                <div class="home-banner">
-                    <div class="banner-text">
-                        <h1>Get Up to 50% off <br/>for any iPhone</h1>
-                        <button class="primary-btn">Buy Now</button>
-                    </div>
-                    <div class="banner-image">
-                        <img src="../assets/iphone-13.png" alt="iphone 13">
-                    </div>
-                </div>
-                <!-- -----------------popular products------------------ -->
-                <div class="products-section" id="popular-products-section">
-                    <p>Popular products</p>
-                    <div class="products-container"  id="popular-products-container">
-                        
-
-                    </div>
-                    <button class="prev-btn">❮</button>
-                    <button class="next-btn">❯</button>
-                </div>
-                <div class="option-container">
-                    <div class="option-items">
-                        <select name="headsets" id="">
-                            <option value="headsets">Headsets</option>
-                            <option value="headsets">Headsets</option>
-                            <option value="headsets">Headsets</option>
-                            <option value="headsets">Headsets</option>
-                        </select>
-                        <select name="headsets" id="">
-                            <option value="headsets">Headsets</option>
-                            <option value="headsets">Headsets</option>
-                            <option value="headsets">Headsets</option>
-                            <option value="headsets">Headsets</option>
-                        </select>
-                        <select name="headsets" id="">
-                            <option value="headsets">Headsets</option>
-                            <option value="headsets">Headsets</option>
-                            <option value="headsets">Headsets</option>
-                            <option value="headsets">Headsets</option>
-                        </select>
-                        <select name="headsets" id="">
-                            <option value="headsets">Headsets</option>
-                            <option value="headsets">Headsets</option>
-                            <option value="headsets">Headsets</option>
-                            <option value="headsets">Headsets</option>
-                        </select>
-                    </div>
-                    
-                </div>
-                <div class="products-section">
-                    <p>Featured products</p>
-                    <div class="products-container"  id="featured-products-container">
-
-                    </div>
-                </div>
-                
-            </section>
-            <!-- -----------------aside------------------------ -->
-            <aside class="sidebar">
-                <div class="side-banner">
-                    <div class="side-banner-items">
-                        <h3>Enjoy Our <br/><span style="font-size: 16px; font-weight: 100;">Promo</span></h3>
-                        <p><a href="#">Buy it now →</a></p>
-                    </div>
-                    <div class="side-banner-image">
-                        <img src="../assets/black-airpods.png" alt="airpods">
-                    </div>
-                </div>
-                <div class="daily-deals">
-                    <div class="deals-title">
-                        <h3>Daily Deals</h3>
-                        <p><a href="#">View all → </a></p>
-                    </div>
-                    <div class="deals-items-container">
-                        <div class="deals-items">
-                            <div><img src="../assets/iphone-13.png" alt=""></div>
-                            <div class="deals-text">
-                                <h4>latest iphone 15 pro new</h4>
-                                <p>50% discount from now</p>
-                            </div>
-                            <div class="deals-price"><p>price $300</p></div>
-                        </div>
-                        <div class="deals-items">
-                            <div><img src="../assets/iphone-13.png" alt=""></div>
-                            <div class="deals-text">
-                                <h4>latest iphone 15 pro new</h4>
-                                <p>50% discount from now</p>
-                            </div>
-                            <div class="deals-price"><p>price $300</p></div>
-                        </div>
-                        <div class="deals-items">
-                            <div><img src="../assets/iphone-13.png" alt=""></div>
-                            <div class="deals-text">
-                                <h4>latest iphone 15 pro new</h4>
-                                <p>50% discount from now</p>
-                            </div>
-                            <div class="deals-price"><p>price $300</p></div>
-                        </div>
-                    </div>    
-                </div>
-            </aside>
-           
-        </main>
-        <div id="home-pagination-container">
-            <div class="pagination">
-                <a href="#" >&laquo;</a>
-                <a href="#" class="active">1</a>
-                <a href="./products.html">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">&raquo;</a>
+      <!-- ---------------------header---------------- -->
+      <header>
+        <nav>
+          <div class="logo">
+            <a href="#">
+              <img src="../assets/logo.png" alt="logo" />
+              <h3>Jonas Store</h3>
+            </a>
+          </div>
+          <div class="navigation">
+            <div class="search">
+              <input
+                type="search"
+                name="search"
+                class="search-field"
+                placeholder="search products"
+              />
+              <img
+                src="../assets/search-normal.png"
+                alt="searchIcon"
+                class="search-btn"
+                onclick="toggleSize()"
+              />
             </div>
+            <div class="nav-items">
+              <a href="./cart.html">
+                <img src="../assets/bag-2.png" alt="cartImg" />
+                <p>Cart</p>
+              </a>
+            </div>
+            <div class="nav-items">
+              <a href="./user.html">
+                <img src="../assets/user.png" alt="userIcon" />
+                <p>Account</p>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <!-- -------------------------main------------------- -->
+      <main>
+        <section class="main-content">
+          <!-- ------------home banner----------------- -->
+          <div class="home-banner">
+            <div class="banner-text">
+              <h1>Get Up to 50% off <br />for any iPhone</h1>
+              <button class="primary-btn">Buy Now</button>
+            </div>
+            <div class="banner-image">
+              <img src="../assets/iphone-13.png" alt="iphone 13" />
+            </div>
+          </div>
+          <!-- -----------------popular products------------------ -->
+          <div class="products-section" id="popular-products-section">
+            <p>Popular products</p>
+            <div
+              class="products-container"
+              id="popular-products-container"
+            ></div>
+            <button class="prev-btn">❮</button>
+            <button class="next-btn">❯</button>
+          </div>
+          <div class="option-container">
+            <div class="option-items">
+              <select name="headsets" id="">
+                <option value="headsets">Headsets</option>
+                <option value="headsets">Headsets</option>
+                <option value="headsets">Headsets</option>
+                <option value="headsets">Headsets</option>
+              </select>
+              <select name="headsets" id="">
+                <option value="headsets">Headsets</option>
+                <option value="headsets">Headsets</option>
+                <option value="headsets">Headsets</option>
+                <option value="headsets">Headsets</option>
+              </select>
+              <select name="headsets" id="">
+                <option value="headsets">Headsets</option>
+                <option value="headsets">Headsets</option>
+                <option value="headsets">Headsets</option>
+                <option value="headsets">Headsets</option>
+              </select>
+              <select name="headsets" id="">
+                <option value="headsets">Headsets</option>
+                <option value="headsets">Headsets</option>
+                <option value="headsets">Headsets</option>
+                <option value="headsets">Headsets</option>
+              </select>
+            </div>
+          </div>
+          <div class="products-section">
+            <p>Featured products</p>
+            <div
+              class="products-container"
+              id="featured-products-container"
+            ></div>
+          </div>
+        </section>
+        <!-- -----------------aside------------------------ -->
+        <aside class="sidebar">
+          <div class="side-banner">
+            <div class="side-banner-items">
+              <h3>
+                Enjoy Our <br /><span style="font-size: 16px; font-weight: 100"
+                  >Promo</span
+                >
+              </h3>
+              <p><a href="#">Buy it now →</a></p>
+            </div>
+            <div class="side-banner-image">
+              <img src="../assets/black-airpods.png" alt="airpods" />
+            </div>
+          </div>
+          <div class="daily-deals">
+            <div class="deals-title">
+              <h3>Daily Deals</h3>
+              <p><a href="#">View all → </a></p>
+            </div>
+            <div class="deals-items-container">
+              <div class="deals-items">
+                <div><img src="../assets/iphone-13.png" alt="" /></div>
+                <div class="deals-text">
+                  <h4>latest iphone 15 pro new</h4>
+                  <p>50% discount from now</p>
+                </div>
+                <div class="deals-price"><p>price $300</p></div>
+              </div>
+              <div class="deals-items">
+                <div><img src="../assets/iphone-13.png" alt="" /></div>
+                <div class="deals-text">
+                  <h4>latest iphone 15 pro new</h4>
+                  <p>50% discount from now</p>
+                </div>
+                <div class="deals-price"><p>price $300</p></div>
+              </div>
+              <div class="deals-items">
+                <div><img src="../assets/iphone-13.png" alt="" /></div>
+                <div class="deals-text">
+                  <h4>latest iphone 15 pro new</h4>
+                  <p>50% discount from now</p>
+                </div>
+                <div class="deals-price"><p>price $300</p></div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </main>
+      <div id="home-pagination-container">
+        <div class="pagination">
+          <a href="#">&laquo;</a>
+          <a href="#" class="active">1</a>
+          <a href="./products.html">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">5</a>
+          <a href="#">&raquo;</a>
         </div>
+      </div>
 
-
-        <!-- ----------------------------footer---------------- -->
-        <footer>
-            <!-- footer here -->
-        </footer>
-
+      <!-- ----------------------------footer---------------- -->
+      <footer>
+        <!-- footer here -->
+      </footer>
     </div>
-
 
     <script src="../js/script.js"></script>
     <script type="module" src="../js/home.js"></script>
-</body>
-
+  </body>
 </html>

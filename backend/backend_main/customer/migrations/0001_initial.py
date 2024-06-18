@@ -9,16 +9,35 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('core', '0001_initial'),
+        ("core", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='CustomerTable',
+            name="CustomerTable",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('address_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='core.useraddresstable')),
-                ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='core.usertable')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "address_id",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="core.useraddresstable",
+                    ),
+                ),
+                (
+                    "user_id",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="core.usertable"
+                    ),
+                ),
             ],
         ),
     ]

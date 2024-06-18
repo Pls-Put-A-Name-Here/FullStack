@@ -8,47 +8,78 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Brand',
+            name="Brand",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('brand_name', models.CharField(max_length=100)),
-                ('country_of_origin', models.CharField(max_length=100)),
-                ('year_established', models.IntegerField()),
-                ('description', models.TextField()),
-                ('created_date', models.DateField(auto_now_add=True)),
-                ('last_edit_date', models.DateField(auto_now=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("brand_name", models.CharField(max_length=100)),
+                ("country_of_origin", models.CharField(max_length=100)),
+                ("year_established", models.IntegerField()),
+                ("description", models.TextField()),
+                ("created_date", models.DateField(auto_now_add=True)),
+                ("last_edit_date", models.DateField(auto_now=True)),
             ],
             options={
-                'db_table': 'tblBrand',
+                "db_table": "tblBrand",
             },
         ),
         migrations.CreateModel(
-            name='ProductCategory',
+            name="ProductCategory",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('category', models.CharField(max_length=100)),
-                ('created_date', models.DateTimeField(auto_now=True)),
-                ('last_edited_date', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("category", models.CharField(max_length=100)),
+                ("created_date", models.DateTimeField(auto_now=True)),
+                ("last_edited_date", models.DateTimeField(auto_now=True)),
             ],
             options={
-                'db_table': 'tblProductCategory',
+                "db_table": "tblProductCategory",
             },
         ),
         migrations.CreateModel(
-            name='ProductSubCategory',
+            name="ProductSubCategory",
             fields=[
-                ('id', models.AutoField(db_column='sctgIdpk', primary_key=True, serialize=False)),
-                ('subcategory_name', models.CharField(db_column='sctgName', max_length=100, unique=True)),
-                ('created_date', models.DateTimeField(auto_now_add=True, db_column='sctgCreatedDate')),
-                ('last_edit_date', models.DateTimeField(auto_now=True, db_column='sctgLastEditDate')),
+                (
+                    "id",
+                    models.AutoField(
+                        db_column="sctgIdpk", primary_key=True, serialize=False
+                    ),
+                ),
+                (
+                    "subcategory_name",
+                    models.CharField(db_column="sctgName", max_length=100, unique=True),
+                ),
+                (
+                    "created_date",
+                    models.DateTimeField(
+                        auto_now_add=True, db_column="sctgCreatedDate"
+                    ),
+                ),
+                (
+                    "last_edit_date",
+                    models.DateTimeField(auto_now=True, db_column="sctgLastEditDate"),
+                ),
             ],
             options={
-                'db_table': 'tblProductSubCategory',
+                "db_table": "tblProductSubCategory",
             },
         ),
         # migrations.CreateModel(

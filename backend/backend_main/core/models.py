@@ -45,7 +45,7 @@ class UserAddressTable(models.Model):
 # Bright ends
 
 # Kirk Starts
-# Note: Django automatically creates an id (primary key) field unless specified otherwise 
+# Note: Django automatically creates an id (primary key) field unless specified otherwise
 # This is the model for tblProductsSubCategory
 # class ProductSubCategory(models.Model):
 #     id = models.AutoField(primary_key=True,db_column='sctgIdpk')
@@ -104,7 +104,7 @@ class UserAddressTable(models.Model):
 #     prvQuantityAvailable = models.IntegerField(db_column='prvQuantityAvailable')
 #     prvSKU = models.CharField(max_length=100, null=False, blank=False, unique=True,db_column='prvSKU')
 #     created_date = models.DateTimeField(auto_now_add=True,db_column='prvCreatedDate')
-#     last_edit_date = models.DateTimeField(auto_now=True,db_column='prvLastEditDate') 
+#     last_edit_date = models.DateTimeField(auto_now=True,db_column='prvLastEditDate')
 
 # Kirk ends
 
@@ -118,6 +118,7 @@ class UserAddressTable(models.Model):
 
 #     def __str__(self):
 #         return self.order_status_name
+
 
 # This is the model for Status table
 class PaymentStatus(models.Model):
@@ -184,6 +185,7 @@ class PaymentStatus(models.Model):
 #     invExpirationDate = models.DateTimeField()
 #     invLastUpdateDate = models.DateTimeField(auto_now=True)
 
+
 # This the models for tblPaymentMethods
 class PaymentMethod(models.Model):
     pmtIdpk = models.AutoField(primary_key=True)
@@ -192,25 +194,27 @@ class PaymentMethod(models.Model):
     pmtCreatedDate = models.DateTimeField(auto_now_add=True)
     pmtLastUpdateDate = models.DateTimeField(auto_now=True)
 
+
 # This the models for    tblPurchase
 
 
 class Purchase(models.Model):
     pchIdpk = models.AutoField(primary_key=True)
-    pchCustIdfk = models.ForeignKey('customer.CustomerTable', on_delete=models.CASCADE)
+    pchCustIdfk = models.ForeignKey("customer.CustomerTable", on_delete=models.CASCADE)
     pchPurchaseDate = models.DateTimeField()
     pchTotalAmount = models.DecimalField(max_digits=10, decimal_places=2)
-    pchPmtIdfk = models.ForeignKey('PaymentMethod', on_delete=models.CASCADE)
-    pchPstIdfk = models.ForeignKey('PaymentStatus', on_delete=models.CASCADE)
+    pchPmtIdfk = models.ForeignKey("PaymentMethod", on_delete=models.CASCADE)
+    pchPstIdfk = models.ForeignKey("PaymentStatus", on_delete=models.CASCADE)
     pchCreatedDate = models.DateTimeField(auto_now_add=True)
     pchLastUpdateDate = models.DateTimeField(auto_now=True)
+
 
 # This the models for tblCarts
 # class Cart(models.Model):
 #     crtIdpk = models.AutoField(primary_key=True)
 #     crtCustomerIdfk = models.ForeignKey('Customer', on_delete=models.CASCADE)
 #     crtCreatedAt = models.DateTimeField(auto_now_add=True)
-#     crtStatus = models.CharField(max_length=50, default='Active')     
+#     crtStatus = models.CharField(max_length=50, default='Active')
 
 # #This the models for tblCartItems
 # class CartItem(models.Model):
