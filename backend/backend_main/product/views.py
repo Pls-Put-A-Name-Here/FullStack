@@ -10,15 +10,16 @@ from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
+
 class ProductView(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
 
 # view to handle the product image
-@api_view(['GET', 'POST'])
+@api_view(["GET", "POST"])
 def ProductImageView(request, product_id=None):
-    if request.method == 'GET':
+    if request.method == "GET":
         if product_id is None:
             # Return all product images
             products = ProductImage.objects.all()
@@ -35,19 +36,23 @@ def ProductImageView(request, product_id=None):
             serializer = ProductImageSerializer(product_images, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
 
-    elif request.method == 'POST':
-        if 'description' not in request.data or 'image' not in request.FILES:
-            return Response({"error": "Description and image are required fields"}, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == "POST":
+        if "description" not in request.data or "image" not in request.FILES:
+            return Response(
+                {"error": "Description and image are required fields"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
-        description = request.data['description']
+        description = request.data["description"]
         product = get_object_or_404(Product, id=product_id)
-        image = request.FILES['image']
+        image = request.FILES["image"]
 
         # Assume store_image is a utility function to handle image saving
         image_url = store_image(image)
 
-        product_image = ProductImage.objects.create(product_id=product, url=image_url, description=description)
+        product_image = ProductImage.objects.create(
+            product_id=product, url=image_url, description=description
+        )
         serializer = ProductImageSerializer(product_image)
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-

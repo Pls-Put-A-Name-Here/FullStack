@@ -9,45 +9,96 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('product', '__first__'),
-        ('customer', '0001_initial'),
+        ("product", "__first__"),
+        ("customer", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='OrderStatusTable',
+            name="OrderStatusTable",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('order_status_name', models.CharField(max_length=50)),
-                ('order_status_description', models.TextField()),
-                ('created_date', models.DateTimeField(auto_now_add=True)),
-                ('last_edited_date', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("order_status_name", models.CharField(max_length=50)),
+                ("order_status_description", models.TextField()),
+                ("created_date", models.DateTimeField(auto_now_add=True)),
+                ("last_edited_date", models.DateTimeField(auto_now=True)),
             ],
         ),
         migrations.CreateModel(
-            name='OrderTable',
+            name="OrderTable",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('order_date', models.DateTimeField(auto_now_add=True)),
-                ('order_delivery_address', models.CharField(max_length=255)),
-                ('order_total_cost', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('created_date', models.DateTimeField(auto_now_add=True)),
-                ('last_edited_date', models.DateTimeField(auto_now=True)),
-                ('order_customer_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='customer.customertable')),
-                ('order_status', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='order.orderstatustable')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("order_date", models.DateTimeField(auto_now_add=True)),
+                ("order_delivery_address", models.CharField(max_length=255)),
+                (
+                    "order_total_cost",
+                    models.DecimalField(decimal_places=2, max_digits=10),
+                ),
+                ("created_date", models.DateTimeField(auto_now_add=True)),
+                ("last_edited_date", models.DateTimeField(auto_now=True)),
+                (
+                    "order_customer_id",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="customer.customertable",
+                    ),
+                ),
+                (
+                    "order_status",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="order.orderstatustable",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='OrderItemsTable',
+            name="OrderItemsTable",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('quantity', models.IntegerField()),
-                ('unit_price', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('total_price', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('created_date', models.DateTimeField(auto_now_add=True)),
-                ('last_edited_date', models.DateTimeField(auto_now=True)),
-                ('order_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='order.ordertable')),
-                ('product_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='product.product')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("quantity", models.IntegerField()),
+                ("unit_price", models.DecimalField(decimal_places=2, max_digits=10)),
+                ("total_price", models.DecimalField(decimal_places=2, max_digits=10)),
+                ("created_date", models.DateTimeField(auto_now_add=True)),
+                ("last_edited_date", models.DateTimeField(auto_now=True)),
+                (
+                    "order_id",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="order.ordertable",
+                    ),
+                ),
+                (
+                    "product_id",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="product.product",
+                    ),
+                ),
             ],
         ),
     ]

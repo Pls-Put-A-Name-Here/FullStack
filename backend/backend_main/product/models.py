@@ -3,29 +3,34 @@ from django.db import models
 
 # Create your models here.
 
+
 class ProductImage(models.Model):
-    id = models.AutoField(primary_key=True, db_column='imgIdpk')
-    product_id = models.ForeignKey('Product', on_delete=models.CASCADE, db_column='imgPrdIdfk')
-    url = models.URLField(db_column='imgURL')
-    description = models.TextField(db_column='imgDescription')
+    id = models.AutoField(primary_key=True, db_column="imgIdpk")
+    product_id = models.ForeignKey(
+        "Product", on_delete=models.CASCADE, db_column="imgPrdIdfk"
+    )
+    url = models.URLField(db_column="imgURL")
+    description = models.TextField(db_column="imgDescription")
     # consider using imagefield instead of urlfield
     # consider using django's built in imagefield
     # image = models.ImageField(upload_to='product_images/',db_column='imgURL')
-    upload_date = models.DateTimeField(auto_now_add=True, db_column='imgUploadDate')
-    last_edit_date = models.DateTimeField(auto_now=True, db_column='imgLastEditDate')
+    upload_date = models.DateTimeField(auto_now_add=True, db_column="imgUploadDate")
+    last_edit_date = models.DateTimeField(auto_now=True, db_column="imgLastEditDate")
 
     class Meta:
         db_table = "tblProductImages"
 
 
 class Brand(models.Model):
-    id = models.AutoField(primary_key=True, db_column='brdIdpk')
-    brand_name = models.CharField(max_length=100, null=False, blank=False, db_column='brdName')
-    country_of_origin = models.CharField(max_length=100, db_column='brdCountryOfOrigin')
-    year_established = models.IntegerField(db_column='brdYearEstablished')
-    description = models.TextField(db_column='brdDescription')
-    created_date = models.DateField(auto_now_add=True, db_column='brdCreatedDate')
-    last_edit_date = models.DateField(auto_now=True, db_column='brdLastEditDate')
+    id = models.AutoField(primary_key=True, db_column="brdIdpk")
+    brand_name = models.CharField(
+        max_length=100, null=False, blank=False, db_column="brdName"
+    )
+    country_of_origin = models.CharField(max_length=100, db_column="brdCountryOfOrigin")
+    year_established = models.IntegerField(db_column="brdYearEstablished")
+    description = models.TextField(db_column="brdDescription")
+    created_date = models.DateField(auto_now_add=True, db_column="brdCreatedDate")
+    last_edit_date = models.DateField(auto_now=True, db_column="brdLastEditDate")
 
     def __str__(self):
         return self.brand_name
@@ -36,10 +41,10 @@ class Brand(models.Model):
 
 # This is the model for tblProductCategory
 class ProductCategory(models.Model):
-    id = models.AutoField(primary_key=True, db_column='ctgIdpk')
-    category = models.CharField(max_length=100, null=False, db_column='ctgName')
-    created_date = models.DateTimeField(auto_now=True, db_column='ctgCreatedDate')
-    last_edited_date = models.DateTimeField(auto_now=True, db_column='ctgLastEditDate')
+    id = models.AutoField(primary_key=True, db_column="ctgIdpk")
+    category = models.CharField(max_length=100, null=False, db_column="ctgName")
+    created_date = models.DateTimeField(auto_now=True, db_column="ctgCreatedDate")
+    last_edited_date = models.DateTimeField(auto_now=True, db_column="ctgLastEditDate")
 
     def __str__(self):
         return self.category
@@ -51,10 +56,12 @@ class ProductCategory(models.Model):
 # Note: Django automatically creates an id (primary key) field unless specified otherwise
 # This is the model for tblProductsSubCategory
 class ProductSubCategory(models.Model):
-    id = models.AutoField(primary_key=True, db_column='sctgIdpk')
-    subcategory_name = models.CharField(max_length=100, null=False, blank=False, unique=True, db_column='sctgName')
-    created_date = models.DateTimeField(auto_now_add=True, db_column='sctgCreatedDate')
-    last_edit_date = models.DateTimeField(auto_now=True, db_column='sctgLastEditDate')
+    id = models.AutoField(primary_key=True, db_column="sctgIdpk")
+    subcategory_name = models.CharField(
+        max_length=100, null=False, blank=False, unique=True, db_column="sctgName"
+    )
+    created_date = models.DateTimeField(auto_now_add=True, db_column="sctgCreatedDate")
+    last_edit_date = models.DateTimeField(auto_now=True, db_column="sctgLastEditDate")
 
     def __str__(self):
         return self.subcategory_name
@@ -66,16 +73,24 @@ class ProductSubCategory(models.Model):
 
 
 class Product(models.Model):
-    id = models.AutoField(primary_key=True, db_column='prdIdpk')
-    brand = models.ForeignKey(Brand, on_delete=models.CASCADE, db_column='prdBrdIdfk')
-    category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE, db_column='prdCtgIdfk')
-    subcategory = models.ForeignKey(ProductSubCategory, on_delete=models.CASCADE, db_column='prdSCtgIdfk')
-    name = models.CharField(max_length=255, null=False, blank=False, db_column='prdName')
-    description = models.TextField(db_column='prdDescription')
-    unit_price = models.DecimalField(max_digits=10, decimal_places=2, db_column='prdUnitPrice')
-    stock_quantity = models.IntegerField(db_column='prdStockQuantity')
-    created_date = models.DateTimeField(auto_now_add=True, db_column='prdCreatedDate')
-    last_edit_date = models.DateTimeField(auto_now=True, db_column='prdLastEditDate')
+    id = models.AutoField(primary_key=True, db_column="prdIdpk")
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE, db_column="prdBrdIdfk")
+    category = models.ForeignKey(
+        ProductCategory, on_delete=models.CASCADE, db_column="prdCtgIdfk"
+    )
+    subcategory = models.ForeignKey(
+        ProductSubCategory, on_delete=models.CASCADE, db_column="prdSCtgIdfk"
+    )
+    name = models.CharField(
+        max_length=255, null=False, blank=False, db_column="prdName"
+    )
+    description = models.TextField(db_column="prdDescription")
+    unit_price = models.DecimalField(
+        max_digits=10, decimal_places=2, db_column="prdUnitPrice"
+    )
+    stock_quantity = models.IntegerField(db_column="prdStockQuantity")
+    created_date = models.DateTimeField(auto_now_add=True, db_column="prdCreatedDate")
+    last_edit_date = models.DateTimeField(auto_now=True, db_column="prdLastEditDate")
 
     class Meta:
         db_table = "tblProducts"
@@ -83,30 +98,45 @@ class Product(models.Model):
 
 # This is the model for tblProductVariants
 class ProductVariant(models.Model):
-    id = models.AutoField(primary_key=True, db_column='prvIdpk')
-    product_id = models.ForeignKey('Product', on_delete=models.CASCADE, db_column='prvPrdIdfk')
-    prvColor = models.CharField(max_length=100, null=False, blank=False, db_column='prvColor')
-    prvSize = models.CharField(max_length=100, null=False, blank=False, db_column='prvSize')
-    prvMaterial = models.CharField(max_length=100, null=False, blank=False, db_column='prvMaterial')
-    prvPriceModifier = models.DecimalField(max_digits=10, decimal_places=2, db_column='prvPriceModifier')
-    prvQuantityAvailable = models.IntegerField(db_column='prvQuantityAvailable')
-    prvSKU = models.CharField(max_length=100, null=False, blank=False, unique=True, db_column='prvSKU')
-    created_date = models.DateTimeField(auto_now_add=True, db_column='prvCreatedDate')
-    last_edit_date = models.DateTimeField(auto_now=True, db_column='prvLastEditDate')
+    id = models.AutoField(primary_key=True, db_column="prvIdpk")
+    product_id = models.ForeignKey(
+        "Product", on_delete=models.CASCADE, db_column="prvPrdIdfk"
+    )
+    prvColor = models.CharField(
+        max_length=100, null=False, blank=False, db_column="prvColor"
+    )
+    prvSize = models.CharField(
+        max_length=100, null=False, blank=False, db_column="prvSize"
+    )
+    prvMaterial = models.CharField(
+        max_length=100, null=False, blank=False, db_column="prvMaterial"
+    )
+    prvPriceModifier = models.DecimalField(
+        max_digits=10, decimal_places=2, db_column="prvPriceModifier"
+    )
+    prvQuantityAvailable = models.IntegerField(db_column="prvQuantityAvailable")
+    prvSKU = models.CharField(
+        max_length=100, null=False, blank=False, unique=True, db_column="prvSKU"
+    )
+    created_date = models.DateTimeField(auto_now_add=True, db_column="prvCreatedDate")
+    last_edit_date = models.DateTimeField(auto_now=True, db_column="prvLastEditDate")
+
 
 # This is the model for tblProductDetails
 
 
 class ProductDetails(models.Model):
-    id = models.AutoField(primary_key=True, db_column='prdDetailsIdpk')
-    product_id = models.ForeignKey('Product', on_delete=models.CASCADE, db_column='prdDetailsPrdIdfk')
-    weight = models.DecimalField(max_digits=10, decimal_places=2, db_column='prdWeight')
-    length = models.DecimalField(max_digits=10, decimal_places=2, db_column='prdLength')
+    id = models.AutoField(primary_key=True, db_column="prdDetailsIdpk")
+    product_id = models.ForeignKey(
+        "Product", on_delete=models.CASCADE, db_column="prdDetailsPrdIdfk"
+    )
+    weight = models.DecimalField(max_digits=10, decimal_places=2, db_column="prdWeight")
+    length = models.DecimalField(max_digits=10, decimal_places=2, db_column="prdLength")
     # made change here : added max_length=255
-    width = models.CharField(db_column='prdWidth', max_length=255)
+    width = models.CharField(db_column="prdWidth", max_length=255)
     # made change here : added max_length=255
-    height = models.CharField(db_column='prdHeight', max_length=255)
-    dimensions = models.CharField(max_length=255, db_column='prdDimensions')
-    techinical_specifications = models.TextField(db_column='prdTechnicalSpecifications')
-    created_date = models.DateTimeField(auto_now_add=True, db_column='prdCreatedDate')
-    last_edit_date = models.DateTimeField(auto_now=True, db_column='prdLastEditDate')
+    height = models.CharField(db_column="prdHeight", max_length=255)
+    dimensions = models.CharField(max_length=255, db_column="prdDimensions")
+    techinical_specifications = models.TextField(db_column="prdTechnicalSpecifications")
+    created_date = models.DateTimeField(auto_now_add=True, db_column="prdCreatedDate")
+    last_edit_date = models.DateTimeField(auto_now=True, db_column="prdLastEditDate")

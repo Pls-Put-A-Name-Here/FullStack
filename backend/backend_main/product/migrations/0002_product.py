@@ -7,26 +7,63 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('product', '0001_initial'),
+        ("product", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.AutoField(db_column='prdIdpk', primary_key=True, serialize=False)),
-                ('name', models.CharField(db_column='prdName', max_length=255)),
-                ('description', models.TextField(db_column='prdDescription')),
-                ('unit_price', models.DecimalField(db_column='prdUnitPrice', decimal_places=2, max_digits=10)),
-                ('stock_quantity', models.IntegerField(db_column='prdStockQuantity')),
-                ('created_date', models.DateTimeField(auto_now_add=True, db_column='prdCreatedDate')),
-                ('last_edit_date', models.DateTimeField(auto_now=True, db_column='prdLastEditDate')),
-                ('brand_id', models.ForeignKey(db_column='prdBrdIdfk', on_delete=django.db.models.deletion.CASCADE, to='product.brand')),
-                ('category_id', models.ForeignKey(db_column='prdCtgIdfk', on_delete=django.db.models.deletion.CASCADE, to='product.productcategory')),
-                ('subcategory_id', models.ForeignKey(db_column='prdSCtgIdfk', on_delete=django.db.models.deletion.CASCADE, to='product.productsubcategory')),
+                (
+                    "id",
+                    models.AutoField(
+                        db_column="prdIdpk", primary_key=True, serialize=False
+                    ),
+                ),
+                ("name", models.CharField(db_column="prdName", max_length=255)),
+                ("description", models.TextField(db_column="prdDescription")),
+                (
+                    "unit_price",
+                    models.DecimalField(
+                        db_column="prdUnitPrice", decimal_places=2, max_digits=10
+                    ),
+                ),
+                ("stock_quantity", models.IntegerField(db_column="prdStockQuantity")),
+                (
+                    "created_date",
+                    models.DateTimeField(auto_now_add=True, db_column="prdCreatedDate"),
+                ),
+                (
+                    "last_edit_date",
+                    models.DateTimeField(auto_now=True, db_column="prdLastEditDate"),
+                ),
+                (
+                    "brand_id",
+                    models.ForeignKey(
+                        db_column="prdBrdIdfk",
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="product.brand",
+                    ),
+                ),
+                (
+                    "category_id",
+                    models.ForeignKey(
+                        db_column="prdCtgIdfk",
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="product.productcategory",
+                    ),
+                ),
+                (
+                    "subcategory_id",
+                    models.ForeignKey(
+                        db_column="prdSCtgIdfk",
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="product.productsubcategory",
+                    ),
+                ),
             ],
             options={
-                'db_table': 'tblProducts',
+                "db_table": "tblProducts",
             },
         ),
     ]
