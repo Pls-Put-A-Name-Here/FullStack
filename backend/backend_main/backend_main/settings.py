@@ -25,6 +25,7 @@ SECRET_KEY = 'django-insecure-!l(apmmdkk*z+3j%@tvb*yd!j)p)2o0he1@#_4q(xllzq5i4-%
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# APPEND_SLASH=False
 
 ALLOWED_HOSTS = []
 
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'inventory',
     'supplier',
     'rest_framework',
+    'rest_framework_jwt',
 ]
 
 MIDDLEWARE = [
@@ -114,6 +116,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+    ]
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

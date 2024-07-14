@@ -4,6 +4,9 @@ from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
+# from rest_framework.authentication import BasicAuthentication
+# from rest_framework.permissions import IsAuthenticated
+# from rest_framework.decorators import permission_classes, authentication_classes
 
 from . import models
 from . import serializers
@@ -22,11 +25,20 @@ from . import serializers
 # This view habdles the getting of all carts and the posting of anew cart item
 
 @api_view(['GET', 'POST'])
+# @authentication_classes([ BasicAuthentication])
+# @permission_classes([IsAuthenticated])
 def list_or_add(request):
     if request.method == 'GET':
         cart_model = models.Cart.objects.all()
         serializer = serializers.CartSerializer(cart_model, many=True)
-        return Response(serializer.data)
+
+    #     content = {
+    #     'user': str(request.user),  # `django.contrib.auth.User` instance.
+    #     'auth': str(request.auth),  # None
+    # }
+        # print(content)
+        return Response( serializer.data)
+        # return Response( content)
     
     if request.method == 'POST':
         data = request.data
@@ -56,4 +68,4 @@ def single_entry_operation(request, pk):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
         get_cart.delete()
-        return Response({"message" : "Deleted Sucessfuly"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"message" : "Deleted Sucessfuly"}, status=status.HTTP_200_OK)
