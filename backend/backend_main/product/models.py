@@ -3,21 +3,6 @@ from django.db import models
 
 # Create your models here.
 
-class ProductImage(models.Model):
-    id = models.AutoField(primary_key=True, db_column='imgIdpk')
-    product_id = models.ForeignKey('Product', on_delete=models.CASCADE, db_column='imgPrdIdfk')
-    url = models.URLField(db_column='imgURL')
-    description = models.TextField(db_column='imgDescription')
-    # consider using imagefield instead of urlfield
-    # consider using django's built in imagefield
-    # image = models.ImageField(upload_to='product_images/',db_column='imgURL')
-    upload_date = models.DateTimeField(auto_now_add=True, db_column='imgUploadDate')
-    last_edit_date = models.DateTimeField(auto_now=True, db_column='imgLastEditDate')
-
-    class Meta:
-        db_table = "tblProductImages"
-        managed=False
-
 
 class Brand(models.Model):
     id = models.AutoField(primary_key=True, db_column='brdIdpk')
@@ -36,8 +21,6 @@ class Brand(models.Model):
         managed=False
         
 
-
-# This is the model for tblProductCategory
 class ProductCategory(models.Model):
     id = models.AutoField(primary_key=True, db_column='ctgIdpk')
     category = models.CharField(max_length=100, null=False, db_column='ctgName')
@@ -51,8 +34,6 @@ class ProductCategory(models.Model):
         db_table = "tblProductCategories"
         managed=False
         
-        
-
 
 # Note: Django automatically creates an id (primary key) field unless specified otherwise
 # This is the model for tblProductsSubCategory
@@ -67,12 +48,10 @@ class ProductSubCategory(models.Model):
 
     class Meta:
         db_table = "tblProductSubCategories"
-        managed=False
+        managed = False
         
 
-    # This is the model for tblProducts
-
-
+# This is the model for tblProducts
 class Product(models.Model):
     id = models.AutoField(primary_key=True, db_column='prdIdpk')
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, db_column='prdBrdIdfk')
@@ -90,6 +69,20 @@ class Product(models.Model):
         managed=False
         
         
+class ProductImage(models.Model):
+    id = models.AutoField(primary_key=True, db_column='imgIdpk')
+    product_id = models.ForeignKey(Product, on_delete=models.CASCADE, db_column='imgPrdIdfk')
+    url = models.URLField(db_column='imgURL')
+    description = models.TextField(db_column='imgDescription')
+    # consider using imagefield instead of urlfield
+    # consider using django's built in imagefield
+    # image = models.ImageField(upload_to='product_images/',db_column='imgURL')
+    upload_date = models.DateTimeField(auto_now_add=True, db_column='imgUploadDate')
+    last_edit_date = models.DateTimeField(auto_now=True, db_column='imgLastEditDate')
+
+    class Meta:
+        db_table = "tblProductImages"
+        managed = False
 
 
 # This is the model for tblProductVariants
