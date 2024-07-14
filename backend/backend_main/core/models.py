@@ -14,7 +14,7 @@ class UserTable(models.Model):
     usrPhoneNumber = models.CharField(max_length=50, db_column='usrPhoneNumber')
 
     def __str__(self):
-        return self.user_name
+        return self.usrName
 # This is the model for tblAddresses
 class UserAddressTable(models.Model):
     address_location = models.CharField(max_length=255)
