@@ -1,5 +1,5 @@
 from django.db import models
-from core.models import *
+from core.models import User,Address
 
 # Create your models here.
 # This is the model for tblCustomers

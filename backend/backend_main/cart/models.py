@@ -23,7 +23,7 @@ class CartItem(models.Model):
     crtItemQuantity = models.IntegerField()
     crtItemUnitPrice = models.DecimalField(max_digits=10, decimal_places=2)
 
-    class meta:
+    class Meta:
         db_table='tblCartItems'
         managed=False
         
