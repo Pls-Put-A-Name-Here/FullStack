@@ -89,7 +89,7 @@ class UserAddressTable(models.Model):
 #     image = models.ImageField(upload_to='product_images/',db_column='imgURL')
 #     upload_date = models.DateTimeField(auto_now_add=True,db_column='imgUploadDate')
 #     last_edit_date = models.DateTimeField(auto_now=True,db_column='imgLastEditDate')
-    
+
 # This is the model for tblProductDetails
 # class ProductDetails(models.Model):
 #     id = models.AutoField(primary_key=True,db_column='prdDetailsIdpk')
@@ -102,7 +102,7 @@ class UserAddressTable(models.Model):
 #     techinical_specifications = models.TextField(db_column='prdTechnicalSpecifications')
 #     created_date = models.DateTimeField(auto_now_add=True,db_column='prdCreatedDate')
 #     last_edit_date = models.DateTimeField(auto_now=True,db_column='prdLastEditDate')
-    
+
 # # This is the model for tblProductVariants
 # class ProductVariant(models.Model):
 #     id = models.AutoField(primary_key=True,db_column='prvIdpk')
@@ -116,9 +116,9 @@ class UserAddressTable(models.Model):
 #     created_date = models.DateTimeField(auto_now_add=True,db_column='prvCreatedDate')
 #     last_edit_date = models.DateTimeField(auto_now=True,db_column='prvLastEditDate') 
 
-#Kirk ends
+# Kirk ends
 
-#Joseph starts
+# Joseph starts
 # # This is the model for Order status table
 # class OrderStatusTable(models.Model):
 #     order_status_name = models.CharField(max_length=50)
@@ -147,6 +147,7 @@ class PaymentStatus(models.Model):
     class Meta:
         db_table = "tblPaymentStatuses"
         managed = False
+
 
 # This is the model for Order table
 # class OrderTable(models.Model):
@@ -187,10 +188,10 @@ class PaymentStatus(models.Model):
 
 #     def __str__(self):
 #         return self.supplier_name
-#Joseph ends
-#Jonathan starts
+# Joseph ends
+# Jonathan starts
 
-#This the model for tb1Inventory
+# This the model for tb1Inventory
 # class Inventory(models.Model):
 #     invIdpk = models.AutoField(primary_key=True)
 #     invPrdIdfk = models.ForeignKey('product.Product', on_delete=models.CASCADE)
@@ -202,7 +203,7 @@ class PaymentStatus(models.Model):
 #     invExpirationDate = models.DateTimeField()
 #     invLastUpdateDate = models.DateTimeField(auto_now=True)
 
-#This the models for tblPaymentMethods
+# This the models for tblPaymentMethods
 class PaymentMethod(models.Model):
     pmtIdpk = models.AutoField(primary_key=True, db_column='pmtIdpk')
     pmtName = models.CharField(max_length=100, db_column='pmtName')
@@ -214,20 +215,18 @@ class PaymentMethod(models.Model):
         db_table="tblPaymentMethods"
         managed = False
 
-#This the models for    tblPurchase
-class Purchase(models.Model):
-    pchIdpk = models.AutoField(primary_key=True, db_column='pchIdpk')
-    pchCustIdfk = models.ForeignKey('customer.CustomerTable', on_delete=models.CASCADE, db_column='pchCustIdfk')
-    pchPurchaseDate = models.DateTimeField(db_column='pchPurchaseDate')
-    pchTotalAmount = models.DecimalField(max_digits=10, decimal_places=2, db_column='pchTotalAmount')
-    pchPmtIdfk = models.ForeignKey('PaymentMethod', on_delete=models.CASCADE, db_column='pchPmtIdfk')
-    pchPstIdfk = models.ForeignKey('PaymentStatus', on_delete=models.CASCADE, db_column='pchPstIdfk')
-    pchCreatedDate = models.DateTimeField(auto_now_add=True, db_column='pchCreatedDate')
-    pchLastUpdateDate = models.DateTimeField(auto_now=True, db_column='pchLastUpdateDate')
+# This the models for    tblPurchase
 
-    class Meta:
-        db_table = "tblPurchase"  
-        managed = False
+
+class Purchase(models.Model):
+    pchIdpk = models.AutoField(primary_key=True)
+    pchCustIdfk = models.ForeignKey('customer.CustomerTable', on_delete=models.CASCADE)
+    pchPurchaseDate = models.DateTimeField()
+    pchTotalAmount = models.DecimalField(max_digits=10, decimal_places=2)
+    pchPmtIdfk = models.ForeignKey('PaymentMethod', on_delete=models.CASCADE)
+    pchPstIdfk = models.ForeignKey('PaymentStatus', on_delete=models.CASCADE)
+    pchCreatedDate = models.DateTimeField(auto_now_add=True)
+    pchLastUpdateDate = models.DateTimeField(auto_now=True)
 
 #This the models for tblCarts
 # class Cart(models.Model):
@@ -244,4 +243,4 @@ class Purchase(models.Model):
 #     crtItemQuantity = models.IntegerField()
 #     crtItemUnitPrice = models.DecimalField(max_digits=10, decimal_places=2)
 
-#-- Jonathan Ends
+# -- Jonathan Ends

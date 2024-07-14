@@ -1,7 +1,8 @@
 from django.db import models
 
+
 # Create your models here.
-#This the models for tblCarts
+# This the models for tblCarts
 class Cart(models.Model):
     crtIdpk = models.AutoField(primary_key=True, db_column='crtIdpk')
     crtCustomerIdfk = models.ForeignKey('customer.CustomerTable', on_delete=models.CASCADE, db_column='crtCustomerIdfk')
