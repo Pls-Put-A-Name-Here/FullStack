@@ -1,7 +1,6 @@
 import uuid
 
-from drf_spectacular.types import OpenApiTypes
-from rest_framework import status, viewsets
+from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
@@ -9,7 +8,7 @@ from customer.models import Customer
 from product.models import Product
 from .models import OrderItem, Order, OrderStatus
 from .serializers import OrderSerializer, OrderStatusSerializer, OrderItemSerializer
-from drf_spectacular.utils import extend_schema, OpenApiParameter
+from drf_spectacular.utils import extend_schema
 
 
 @extend_schema(
@@ -29,8 +28,8 @@ def orders(request, pk=None):
         address = customer.address_id
         product = get_object_or_404(Product, pk=pk)
 
-        if product.stock_quantity == 0:
-            return Response({'error': 'Product out of stock'}, status=status.HTTP_400_BAD_REQUEST)
+        if product.stock_quantity == 0:  
+            return Response({'error': 'Product out of stock', 'product_id': product.id}, status=status.HTTP_400_BAD_REQUEST) 
 
         order_id = uuid.uuid4()
         quantity = request.data.get("quantity", 0)
