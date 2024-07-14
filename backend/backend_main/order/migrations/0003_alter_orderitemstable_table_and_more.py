@@ -6,20 +6,20 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('order', '0002_alter_orderitemstable_options_and_more'),
+        ("order", "0002_alter_orderitemstable_options_and_more"),
     ]
 
     operations = [
         migrations.AlterModelTable(
-            name='orderitemstable',
-            table='tblOrderItem',
+            name="orderitemstable",
+            table="tblOrderItem",
         ),
         migrations.AlterModelTable(
-            name='orderstatustable',
-            table='tblOrderStatuses',
+            name="orderstatustable",
+            table="tblOrderStatuses",
         ),
         migrations.AlterModelTable(
-            name='ordertable',
-            table='tblOrders',
+            name="ordertable",
+            table="tblOrders",
         ),
     ]

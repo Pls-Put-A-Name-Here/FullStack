@@ -6,12 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('inventory', '0002_alter_inventory_options'),
+        ("inventory", "0002_alter_inventory_options"),
     ]
 
     operations = [
         migrations.AlterModelTable(
-            name='inventory',
-            table='tblInventory',
+            name="inventory",
+            table="tblInventory",
         ),
     ]

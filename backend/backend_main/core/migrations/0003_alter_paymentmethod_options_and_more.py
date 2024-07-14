@@ -6,28 +6,28 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0002_initial'),
+        ("core", "0002_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='paymentmethod',
-            options={'managed': False},
+            name="paymentmethod",
+            options={"managed": False},
         ),
         migrations.AlterModelOptions(
-            name='paymentstatus',
-            options={'managed': False},
+            name="paymentstatus",
+            options={"managed": False},
         ),
         migrations.AlterModelOptions(
-            name='purchase',
-            options={'managed': False},
+            name="purchase",
+            options={"managed": False},
         ),
         migrations.AlterModelOptions(
-            name='useraddresstable',
-            options={'managed': False},
+            name="useraddresstable",
+            options={"managed": False},
         ),
         migrations.AlterModelOptions(
-            name='usertable',
-            options={'managed': False},
+            name="usertable",
+            options={"managed": False},
         ),
     ]

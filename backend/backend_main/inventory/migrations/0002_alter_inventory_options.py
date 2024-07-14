@@ -6,12 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('inventory', '0001_initial'),
+        ("inventory", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='inventory',
-            options={'managed': False},
+            name="inventory",
+            options={"managed": False},
         ),
     ]

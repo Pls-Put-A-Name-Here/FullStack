@@ -6,16 +6,16 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('cart', '0002_initial'),
+        ("cart", "0002_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='cart',
-            options={'managed': False},
+            name="cart",
+            options={"managed": False},
         ),
         migrations.AlterModelOptions(
-            name='cartitem',
-            options={'managed': False},
+            name="cartitem",
+            options={"managed": False},
         ),
     ]

@@ -6,36 +6,36 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('product', '0003_productdetails_productimage_productvariant'),
+        ("product", "0003_productdetails_productimage_productvariant"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='brand',
-            options={'managed': False},
+            name="brand",
+            options={"managed": False},
         ),
         migrations.AlterModelOptions(
-            name='product',
-            options={'managed': False},
+            name="product",
+            options={"managed": False},
         ),
         migrations.AlterModelOptions(
-            name='productcategory',
-            options={'managed': False},
+            name="productcategory",
+            options={"managed": False},
         ),
         migrations.AlterModelOptions(
-            name='productdetails',
-            options={'managed': False},
+            name="productdetails",
+            options={"managed": False},
         ),
         migrations.AlterModelOptions(
-            name='productimage',
-            options={'managed': False},
+            name="productimage",
+            options={"managed": False},
         ),
         migrations.AlterModelOptions(
-            name='productsubcategory',
-            options={'managed': False},
+            name="productsubcategory",
+            options={"managed": False},
         ),
         migrations.AlterModelOptions(
-            name='productvariant',
-            options={'managed': False},
+            name="productvariant",
+            options={"managed": False},
         ),
     ]

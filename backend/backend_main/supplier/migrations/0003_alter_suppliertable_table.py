@@ -6,12 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('supplier', '0002_alter_suppliertable_options'),
+        ("supplier", "0002_alter_suppliertable_options"),
     ]
 
     operations = [
         migrations.AlterModelTable(
-            name='suppliertable',
-            table='tblSuppliers',
+            name="suppliertable",
+            table="tblSuppliers",
         ),
     ]
