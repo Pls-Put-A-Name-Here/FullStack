@@ -225,46 +225,46 @@ def generate_supplier_records(num_records):
         f.write(";\n\n")
 
 # Set the number of records to generate
-num_product_images = 1000
-num_product_details = 1000
-num_product_variants = 1000
-num_order_statuses = 4
-num_payment_statuses = 3
-num_orders = 1000
-num_order_items = 1000
-num_suppliers = 1000
-num_brands = 1000
-num_categories = 1000
-num_subcategories = 1000
-num_products = 1000
-num_users = 1000
-num_addresses = 1000
-num_customers = 1000
+num_product_images = 1
+# num_product_details = 1000
+# num_product_variants = 1000
+# num_order_statuses = 4
+# num_payment_statuses = 3
+# num_orders = 1000
+# num_order_items = 1000
+# num_suppliers = 1000
+# num_brands = 1000
+# num_categories = 1000
+# num_subcategories = 1000
+# num_products = 1000
+# num_users = 1000
+# num_addresses = 1000
+# num_customers = 1000
 
 
 # Generate SQL statements for the  tables
 
 # Generate SQL statements for brand, product category, product subcategory, and product records
-generate_brand_records(num_brands)
-generate_product_category_records(num_categories)
-generate_product_subcategory_records(num_subcategories)
-generate_product_records(num_products)
+# generate_brand_records(num_brands)
+# generate_product_category_records(num_categories)
+# generate_product_subcategory_records(num_subcategories)
+# generate_product_records(num_products)
 
 
 # Generate SQL statements for user, address, and customer records
-generate_user_records(num_users)
-generate_address_records(num_addresses)
-generate_customer_records(num_customers)
+# generate_user_records(num_users)
+# generate_address_records(num_addresses)
+# generate_customer_records(num_customers)
 
 # Assuming product_ids and customer_ids are available from previous data generation
 generate_product_images_records(num_product_images, product_ids)
-generate_product_details_records(num_product_details, product_ids)
-generate_product_variants_records(num_product_variants, product_ids)
-generate_order_status_records()
-generate_payment_status_records()
-generate_order_records(num_orders, customer_ids)
-generate_order_item_records(num_order_items, order_ids, product_ids)
-generate_supplier_records(num_suppliers)
+# generate_product_details_records(num_product_details, product_ids)
+# generate_product_variants_records(num_product_variants, product_ids)
+# generate_order_status_records()
+# generate_payment_status_records()
+# generate_order_records(num_orders, customer_ids)
+# generate_order_item_records(num_order_items, order_ids, product_ids)
+# generate_supplier_records(num_suppliers)
 
 
 
