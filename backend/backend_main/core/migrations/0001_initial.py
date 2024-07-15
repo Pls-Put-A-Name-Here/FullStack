@@ -7,78 +7,113 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Address',
+            name="Address",
             fields=[
-                ('address_id', models.AutoField(db_column='adrIdpk', primary_key=True, serialize=False)),
-                ('address_location', models.CharField(db_column='adrLocation', max_length=255)),
-                ('digital_address', models.CharField(db_column='adrDigitalAddress', max_length=255)),
-                ('house_address', models.CharField(db_column='adrHouseAddress', max_length=255)),
+                (
+                    "address_id",
+                    models.AutoField(
+                        db_column="adrIdpk", primary_key=True, serialize=False
+                    ),
+                ),
+                (
+                    "address_location",
+                    models.CharField(db_column="adrLocation", max_length=255),
+                ),
+                (
+                    "digital_address",
+                    models.CharField(db_column="adrDigitalAddress", max_length=255),
+                ),
+                (
+                    "house_address",
+                    models.CharField(db_column="adrHouseAddress", max_length=255),
+                ),
             ],
             options={
-                'db_table': 'tblAddresses',
-                'managed': False,
+                "db_table": "tblAddresses",
+                "managed": False,
             },
         ),
         migrations.CreateModel(
-            name='PaymentMethod',
+            name="PaymentMethod",
             fields=[
-                ('pmtIdpk', models.AutoField(primary_key=True, serialize=False)),
-                ('pmtName', models.CharField(max_length=100)),
-                ('pmtDescription', models.CharField(max_length=255)),
-                ('pmtCreatedDate', models.DateTimeField(auto_now_add=True)),
-                ('pmtLastUpdateDate', models.DateTimeField(auto_now=True)),
+                ("pmtIdpk", models.AutoField(primary_key=True, serialize=False)),
+                ("pmtName", models.CharField(max_length=100)),
+                ("pmtDescription", models.CharField(max_length=255)),
+                ("pmtCreatedDate", models.DateTimeField(auto_now_add=True)),
+                ("pmtLastUpdateDate", models.DateTimeField(auto_now=True)),
             ],
             options={
-                'db_table': 'tblPaymentMethods',
-                'managed': False,
+                "db_table": "tblPaymentMethods",
+                "managed": False,
             },
         ),
         migrations.CreateModel(
-            name='PaymentStatus',
+            name="PaymentStatus",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('status_name', models.CharField(max_length=50)),
-                ('status_description', models.TextField()),
-                ('created_date', models.DateTimeField(auto_now_add=True)),
-                ('last_edited_date', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("status_name", models.CharField(max_length=50)),
+                ("status_description", models.TextField()),
+                ("created_date", models.DateTimeField(auto_now_add=True)),
+                ("last_edited_date", models.DateTimeField(auto_now=True)),
             ],
             options={
-                'db_table': 'tblPaymentStatus',
-                'managed': False,
+                "db_table": "tblPaymentStatus",
+                "managed": False,
             },
         ),
         migrations.CreateModel(
-            name='Purchase',
+            name="Purchase",
             fields=[
-                ('pchIdpk', models.AutoField(primary_key=True, serialize=False)),
-                ('pchPurchaseDate', models.DateTimeField()),
-                ('pchTotalAmount', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('pchCreatedDate', models.DateTimeField(auto_now_add=True)),
-                ('pchLastUpdateDate', models.DateTimeField(auto_now=True)),
+                ("pchIdpk", models.AutoField(primary_key=True, serialize=False)),
+                ("pchPurchaseDate", models.DateTimeField()),
+                (
+                    "pchTotalAmount",
+                    models.DecimalField(decimal_places=2, max_digits=10),
+                ),
+                ("pchCreatedDate", models.DateTimeField(auto_now_add=True)),
+                ("pchLastUpdateDate", models.DateTimeField(auto_now=True)),
             ],
             options={
-                'db_table': 'tblPurchases',
-                'managed': False,
+                "db_table": "tblPurchases",
+                "managed": False,
             },
         ),
         migrations.CreateModel(
-            name='User',
+            name="User",
             fields=[
-                ('user_id', models.AutoField(db_column='usrIdpk', primary_key=True, serialize=False)),
-                ('user_name', models.CharField(db_column='usrName', max_length=50)),
-                ('user_password', models.CharField(db_column='usrPassword', max_length=50)),
-                ('user_email', models.CharField(db_column='usrEmail', max_length=50)),
-                ('user_date_of_birth', models.DateField(db_column='usrDoB')),
-                ('user_phone_number', models.CharField(db_column='usrPhoneNumber', max_length=50)),
+                (
+                    "user_id",
+                    models.AutoField(
+                        db_column="usrIdpk", primary_key=True, serialize=False
+                    ),
+                ),
+                ("user_name", models.CharField(db_column="usrName", max_length=50)),
+                (
+                    "user_password",
+                    models.CharField(db_column="usrPassword", max_length=50),
+                ),
+                ("user_email", models.CharField(db_column="usrEmail", max_length=50)),
+                ("user_date_of_birth", models.DateField(db_column="usrDoB")),
+                (
+                    "user_phone_number",
+                    models.CharField(db_column="usrPhoneNumber", max_length=50),
+                ),
             ],
             options={
-                'db_table': 'tblUsers',
-                'managed': False,
+                "db_table": "tblUsers",
+                "managed": False,
             },
         ),
     ]
