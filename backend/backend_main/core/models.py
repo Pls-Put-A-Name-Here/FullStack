@@ -15,6 +15,7 @@ class UserTable(models.Model):
 
     def __str__(self):
         return self.user_name
+
     class Meta:
         db_table = "tblUsers"
         managed = False
@@ -34,11 +35,12 @@ class UserAddressTable(models.Model):
     adrHouseAddress = models.CharField(
         max_length=255, db_column="adrHouseAddress", null=True
     )
+
     def __str__(self):
         return self.digital_address
-    
+
     class Meta:
-        db_table="tblAddresses"
+        db_table = "tblAddresses"
         managed = False
 
     class Meta:
