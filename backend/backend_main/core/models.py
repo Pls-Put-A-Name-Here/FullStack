@@ -1,28 +1,43 @@
 from django.db import models
+from datetime import datetime
 
 
 # Create your models here.
 # Bright Start
 # This is the model for tblUsers
 class UserTable(models.Model):
-    user_name = models.CharField(max_length=50)
-    user_password = models.CharField(max_length=50)
-    user_email = models.CharField(max_length=50)
-    user_date_of_birth = models.DateField()
-    user_phone_number = models.CharField(max_length=50)
+    usrIdpk = models.AutoField(primary_key=True, db_column="usrIdpk")
+    usrName = models.CharField(max_length=50, db_column="usrName")
+    usrPassword = models.CharField(max_length=50, db_column="usrPassword")
+    usrEmail = models.CharField(max_length=50, db_column="usrEmail")
+    usrDoB = models.DateField(db_column="usrDoB")
+    usrPhoneNumber = models.CharField(max_length=50, db_column="usrPhoneNumber")
 
     def __str__(self):
         return self.user_name
 
+    class Meta:
+        db_table = "tblUsers"
+        managed = False
+
 
 # This is the model for tblAddresses
 class UserAddressTable(models.Model):
-    address_location = models.CharField(max_length=255)
-    digital_address = models.CharField(max_length=255)
-    house_address = models.CharField(max_length=255)
+    adrIdpk = models.AutoField(primary_key=True, db_column="adrIdpk")
+    adrLocation = models.CharField(max_length=255, db_column="adrLocation")
+    adrDigitalAddress = models.CharField(
+        max_length=255, db_column="adrDigitalAddress", null=True
+    )
+    adrHouseAddress = models.CharField(
+        max_length=255, db_column="adrHouseAddress", null=True
+    )
 
     def __str__(self):
         return self.digital_address
+
+    class Meta:
+        db_table = "tblAddresses"
+        managed = False
 
 
 # This is the model for tblCustomers
@@ -45,7 +60,7 @@ class UserAddressTable(models.Model):
 # Bright ends
 
 # Kirk Starts
-# Note: Django automatically creates an id (primary key) field unless specified otherwise 
+# Note: Django automatically creates an id (primary key) field unless specified otherwise
 # This is the model for tblProductsSubCategory
 # class ProductSubCategory(models.Model):
 #     id = models.AutoField(primary_key=True,db_column='sctgIdpk')
@@ -104,7 +119,7 @@ class UserAddressTable(models.Model):
 #     prvQuantityAvailable = models.IntegerField(db_column='prvQuantityAvailable')
 #     prvSKU = models.CharField(max_length=100, null=False, blank=False, unique=True,db_column='prvSKU')
 #     created_date = models.DateTimeField(auto_now_add=True,db_column='prvCreatedDate')
-#     last_edit_date = models.DateTimeField(auto_now=True,db_column='prvLastEditDate') 
+#     last_edit_date = models.DateTimeField(auto_now=True,db_column='prvLastEditDate')
 
 # Kirk ends
 
@@ -119,15 +134,25 @@ class UserAddressTable(models.Model):
 #     def __str__(self):
 #         return self.order_status_name
 
+
 # This is the model for Status table
 class PaymentStatus(models.Model):
     status_name = models.CharField(max_length=50)
     status_description = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     last_edited_date = models.DateTimeField(auto_now=True)
+    # pstIdpk = models.AutoField(primary_key=True,db_column='pstIdpk')
+    # pstStatusName = models.CharField(max_length=50, db_column='pstStatusName')
+    # pstDescription = models.TextField(db_column='pstDescription')
+    # pstCreatedDate = models.DateTimeField(auto_now_add=True, db_column='pstCreatedDate')
+    # pstLastUpdateDate = models.DateTimeField(auto_now=True, db_column='pstLastUpdateDate')
 
     def __str__(self):
         return self.status_name
+
+    class Meta:
+        db_table = "tblPaymentStatuses"
+        managed = False
 
 
 # This is the model for Order table
@@ -184,33 +209,42 @@ class PaymentStatus(models.Model):
 #     invExpirationDate = models.DateTimeField()
 #     invLastUpdateDate = models.DateTimeField(auto_now=True)
 
+
 # This the models for tblPaymentMethods
 class PaymentMethod(models.Model):
-    pmtIdpk = models.AutoField(primary_key=True)
-    pmtName = models.CharField(max_length=100)
-    pmtDescription = models.CharField(max_length=255)
-    pmtCreatedDate = models.DateTimeField(auto_now_add=True)
-    pmtLastUpdateDate = models.DateTimeField(auto_now=True)
+    pmtIdpk = models.AutoField(primary_key=True, db_column="pmtIdpk")
+    pmtName = models.CharField(max_length=100, db_column="pmtName")
+    pmtDescription = models.CharField(max_length=255, db_column="pmtDescription")
+    pmtCreatedDate = models.DateTimeField(auto_now_add=True, db_column="pmtCreatedDate")
+    pmtLastUpdateDate = models.DateTimeField(
+        auto_now=True, db_column="pmtLastUpdateDate"
+    )
+
+    class Meta:
+        db_table = "tblPaymentMethods"
+        managed = False
+
 
 # This the models for    tblPurchase
 
 
 class Purchase(models.Model):
     pchIdpk = models.AutoField(primary_key=True)
-    pchCustIdfk = models.ForeignKey('customer.CustomerTable', on_delete=models.CASCADE)
+    pchCustIdfk = models.ForeignKey("customer.CustomerTable", on_delete=models.CASCADE)
     pchPurchaseDate = models.DateTimeField()
     pchTotalAmount = models.DecimalField(max_digits=10, decimal_places=2)
-    pchPmtIdfk = models.ForeignKey('PaymentMethod', on_delete=models.CASCADE)
-    pchPstIdfk = models.ForeignKey('PaymentStatus', on_delete=models.CASCADE)
+    pchPmtIdfk = models.ForeignKey("PaymentMethod", on_delete=models.CASCADE)
+    pchPstIdfk = models.ForeignKey("PaymentStatus", on_delete=models.CASCADE)
     pchCreatedDate = models.DateTimeField(auto_now_add=True)
     pchLastUpdateDate = models.DateTimeField(auto_now=True)
+
 
 # This the models for tblCarts
 # class Cart(models.Model):
 #     crtIdpk = models.AutoField(primary_key=True)
 #     crtCustomerIdfk = models.ForeignKey('Customer', on_delete=models.CASCADE)
 #     crtCreatedAt = models.DateTimeField(auto_now_add=True)
-#     crtStatus = models.CharField(max_length=50, default='Active')     
+#     crtStatus = models.CharField(max_length=50, default='Active')
 
 # #This the models for tblCartItems
 # class CartItem(models.Model):
