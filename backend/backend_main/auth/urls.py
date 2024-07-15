@@ -7,6 +7,6 @@ from . import views
 # router.register(views.list_or_add, basename="cart")
 
 urlpatterns = [
-    path("api/cart/", views.list_or_add, name="list-or-add"),
-    path("api/cart/<int:pk>/", views.single_entry_operation, name="seo"),
+    path("register/", views.register, name="register"),
+    path("login/", views.login, name="login"),
 ]

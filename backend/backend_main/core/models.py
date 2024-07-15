@@ -1,16 +1,17 @@
 from django.db import models
+from datetime import datetime
 
 
 # Create your models here.
 # Bright Start
 # This is the model for tblUsers
-class User(models.Model):
-    user_id = models.AutoField(primary_key=True,db_column='usrIdpk')
-    user_name = models.CharField(max_length=50,db_column='usrName')
-    user_password = models.CharField(max_length=50,db_column='usrPassword')
-    user_email = models.CharField(max_length=50,db_column='usrEmail')
-    user_date_of_birth = models.DateField(db_column='usrDoB')
-    user_phone_number = models.CharField(max_length=50,db_column='usrPhoneNumber')
+class UserTable(models.Model):
+    usrIdpk = models.AutoField(primary_key=True, db_column="usrIdpk")
+    usrName = models.CharField(max_length=50, db_column="usrName")
+    usrPassword = models.CharField(max_length=50, db_column="usrPassword")
+    usrEmail = models.CharField(max_length=50, db_column="usrEmail")
+    usrDoB = models.DateField(db_column="usrDoB")
+    usrPhoneNumber = models.CharField(max_length=50, db_column="usrPhoneNumber")
 
     def __str__(self):
         return self.user_name
@@ -18,19 +19,30 @@ class User(models.Model):
         db_table = "tblUsers"
         managed = False
 
+    class Meta:
+        db_table = "tblUsers"
+        managed = False
+
 
 # This is the model for tblAddresses
-class Address(models.Model):
-    address_id = models.AutoField(primary_key=True,db_column='adrIdpk')
-    address_location = models.CharField(max_length=255,db_column='adrLocation')
-    digital_address = models.CharField(max_length=255,db_column='adrDigitalAddress')
-    house_address = models.CharField(max_length=255,db_column='adrHouseAddress')
-
+class UserAddressTable(models.Model):
+    adrIdpk = models.AutoField(primary_key=True, db_column="adrIdpk")
+    adrLocation = models.CharField(max_length=255, db_column="adrLocation")
+    adrDigitalAddress = models.CharField(
+        max_length=255, db_column="adrDigitalAddress", null=True
+    )
+    adrHouseAddress = models.CharField(
+        max_length=255, db_column="adrHouseAddress", null=True
+    )
     def __str__(self):
         return self.digital_address
     
     class Meta:
         db_table="tblAddresses"
+        managed = False
+
+    class Meta:
+        db_table = "tblAddresses"
         managed = False
 
 
@@ -54,7 +66,7 @@ class Address(models.Model):
 # Bright ends
 
 # Kirk Starts
-# Note: Django automatically creates an id (primary key) field unless specified otherwise 
+# Note: Django automatically creates an id (primary key) field unless specified otherwise
 # This is the model for tblProductsSubCategory
 # class ProductSubCategory(models.Model):
 #     id = models.AutoField(primary_key=True,db_column='sctgIdpk')
@@ -113,7 +125,7 @@ class Address(models.Model):
 #     prvQuantityAvailable = models.IntegerField(db_column='prvQuantityAvailable')
 #     prvSKU = models.CharField(max_length=100, null=False, blank=False, unique=True,db_column='prvSKU')
 #     created_date = models.DateTimeField(auto_now_add=True,db_column='prvCreatedDate')
-#     last_edit_date = models.DateTimeField(auto_now=True,db_column='prvLastEditDate') 
+#     last_edit_date = models.DateTimeField(auto_now=True,db_column='prvLastEditDate')
 
 # Kirk ends
 
@@ -127,6 +139,7 @@ class Address(models.Model):
 
 #     def __str__(self):
 #         return self.order_status_name
+
 
 # This is the model for Status table
 # class PaymentStatus(models.Model):
@@ -197,6 +210,7 @@ class Address(models.Model):
 #     invExpirationDate = models.DateTimeField()
 #     invLastUpdateDate = models.DateTimeField(auto_now=True)
 
+
 # This the models for tblPaymentMethods
 # class PaymentMethod(models.Model):
 #     pmtIdpk = models.AutoField(primary_key=True)
@@ -226,12 +240,16 @@ class Address(models.Model):
 #         db_table='tblPurchases'
 #         managed=False
 
+
+# This the models for    tblPurchase
+
+
 # This the models for tblCarts
 # class Cart(models.Model):
 #     crtIdpk = models.AutoField(primary_key=True)
 #     crtCustomerIdfk = models.ForeignKey('Customer', on_delete=models.CASCADE)
 #     crtCreatedAt = models.DateTimeField(auto_now_add=True)
-#     crtStatus = models.CharField(max_length=50, default='Active')     
+#     crtStatus = models.CharField(max_length=50, default='Active')
 
 # #This the models for tblCartItems
 # class CartItem(models.Model):

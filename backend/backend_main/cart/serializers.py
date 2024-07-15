@@ -5,10 +5,10 @@ from . import models
 class CartSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Cart
-        fields = '__all__'
+        fields = "__all__"
+
 
 class CartItemSerializer(serializers.ModelSerializer):
-    
-    class meta:
+    class Meta:
         model = models.CartItem
-        fields = '__all__'
+        fields = "__all__"

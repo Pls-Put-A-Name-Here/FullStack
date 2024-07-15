@@ -25,7 +25,7 @@ class Order(models.Model):
         )
         return order
 
-    class Meta:
+      class Meta:
         db_table = "tblOrders"
         managed = False
 
@@ -68,7 +68,7 @@ class OrderStatus(models.Model):
 
     def __str__(self):
         return self.name
-
+      
     class Meta:
         db_table = "tblOrderStatuses"
         managed = False
