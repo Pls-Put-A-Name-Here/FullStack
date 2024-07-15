@@ -3,6 +3,7 @@ from django.db import models
 
 # Create your models here.
 
+
 class Brand(models.Model):
     brdIdpk = models.AutoField(primary_key=True, db_column="brdIdpk")
     brdName = models.CharField(
@@ -21,8 +22,8 @@ class Brand(models.Model):
 
     class Meta:
         db_table = "tblBrands"
-        managed=False
-        
+        managed = False
+
 
 class ProductCategory(models.Model):
     ctgIdpk = models.AutoField(primary_key=True, db_column="ctgIdpk")
@@ -32,7 +33,7 @@ class ProductCategory(models.Model):
 
     class Meta:
         db_table = "tblProductCategories"
-        managed=False
+        managed = False
 
 
 # Note: Django automatically creates an id (primary key) field unless specified otherwise
@@ -76,19 +77,21 @@ class Product(models.Model):
 
     class Meta:
         db_table = "tblProducts"
-        managed=False
-        
-        
+        managed = False
+
+
 class ProductImage(models.Model):
-    id = models.AutoField(primary_key=True, db_column='imgIdpk')
-    product_id = models.ForeignKey(Product, on_delete=models.CASCADE, db_column='imgPrdIdfk')
-    url = models.URLField(db_column='imgURL')
-    description = models.TextField(db_column='imgDescription')
+    id = models.AutoField(primary_key=True, db_column="imgIdpk")
+    product_id = models.ForeignKey(
+        Product, on_delete=models.CASCADE, db_column="imgPrdIdfk"
+    )
+    url = models.URLField(db_column="imgURL")
+    description = models.TextField(db_column="imgDescription")
     # consider using imagefield instead of urlfield
     # consider using django's built in imagefield
     # image = models.ImageField(upload_to='product_images/',db_column='imgURL')
-    upload_date = models.DateTimeField(auto_now_add=True, db_column='imgUploadDate')
-    last_edit_date = models.DateTimeField(auto_now=True, db_column='imgLastEditDate')
+    upload_date = models.DateTimeField(auto_now_add=True, db_column="imgUploadDate")
+    last_edit_date = models.DateTimeField(auto_now=True, db_column="imgLastEditDate")
 
     class Meta:
         db_table = "tblProductImages"

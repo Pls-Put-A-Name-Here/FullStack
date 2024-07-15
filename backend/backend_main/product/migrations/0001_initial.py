@@ -8,110 +8,246 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Brand',
+            name="Brand",
             fields=[
-                ('id', models.AutoField(db_column='brdIdpk', primary_key=True, serialize=False)),
-                ('brand_name', models.CharField(db_column='brdName', max_length=100)),
-                ('country_of_origin', models.CharField(db_column='brdCountryOfOrigin', max_length=100)),
-                ('year_established', models.IntegerField(db_column='brdYearEstablished')),
-                ('description', models.TextField(db_column='brdDescription')),
-                ('created_date', models.DateField(auto_now_add=True, db_column='brdCreatedDate')),
-                ('last_edit_date', models.DateField(auto_now=True, db_column='brdLastEditDate')),
+                (
+                    "id",
+                    models.AutoField(
+                        db_column="brdIdpk", primary_key=True, serialize=False
+                    ),
+                ),
+                ("brand_name", models.CharField(db_column="brdName", max_length=100)),
+                (
+                    "country_of_origin",
+                    models.CharField(db_column="brdCountryOfOrigin", max_length=100),
+                ),
+                (
+                    "year_established",
+                    models.IntegerField(db_column="brdYearEstablished"),
+                ),
+                ("description", models.TextField(db_column="brdDescription")),
+                (
+                    "created_date",
+                    models.DateField(auto_now_add=True, db_column="brdCreatedDate"),
+                ),
+                (
+                    "last_edit_date",
+                    models.DateField(auto_now=True, db_column="brdLastEditDate"),
+                ),
             ],
             options={
-                'db_table': 'tblBrands',
-                'managed': False,
+                "db_table": "tblBrands",
+                "managed": False,
             },
         ),
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.AutoField(db_column='prdIdpk', primary_key=True, serialize=False)),
-                ('name', models.CharField(db_column='prdName', max_length=255)),
-                ('description', models.TextField(db_column='prdDescription')),
-                ('unit_price', models.DecimalField(db_column='prdUnitPrice', decimal_places=2, max_digits=10)),
-                ('stock_quantity', models.IntegerField(db_column='prdStockQuantity')),
-                ('created_date', models.DateTimeField(auto_now_add=True, db_column='prdCreatedDate')),
-                ('last_edit_date', models.DateTimeField(auto_now=True, db_column='prdLastEditDate')),
+                (
+                    "id",
+                    models.AutoField(
+                        db_column="prdIdpk", primary_key=True, serialize=False
+                    ),
+                ),
+                ("name", models.CharField(db_column="prdName", max_length=255)),
+                ("description", models.TextField(db_column="prdDescription")),
+                (
+                    "unit_price",
+                    models.DecimalField(
+                        db_column="prdUnitPrice", decimal_places=2, max_digits=10
+                    ),
+                ),
+                ("stock_quantity", models.IntegerField(db_column="prdStockQuantity")),
+                (
+                    "created_date",
+                    models.DateTimeField(auto_now_add=True, db_column="prdCreatedDate"),
+                ),
+                (
+                    "last_edit_date",
+                    models.DateTimeField(auto_now=True, db_column="prdLastEditDate"),
+                ),
             ],
             options={
-                'db_table': 'tblProducts',
-                'managed': False,
+                "db_table": "tblProducts",
+                "managed": False,
             },
         ),
         migrations.CreateModel(
-            name='ProductCategory',
+            name="ProductCategory",
             fields=[
-                ('id', models.AutoField(db_column='ctgIdpk', primary_key=True, serialize=False)),
-                ('category', models.CharField(db_column='ctgName', max_length=100)),
-                ('created_date', models.DateTimeField(auto_now=True, db_column='ctgCreatedDate')),
-                ('last_edited_date', models.DateTimeField(auto_now=True, db_column='ctgLastEditDate')),
+                (
+                    "id",
+                    models.AutoField(
+                        db_column="ctgIdpk", primary_key=True, serialize=False
+                    ),
+                ),
+                ("category", models.CharField(db_column="ctgName", max_length=100)),
+                (
+                    "created_date",
+                    models.DateTimeField(auto_now=True, db_column="ctgCreatedDate"),
+                ),
+                (
+                    "last_edited_date",
+                    models.DateTimeField(auto_now=True, db_column="ctgLastEditDate"),
+                ),
             ],
             options={
-                'db_table': 'tblProductCategories',
-                'managed': False,
+                "db_table": "tblProductCategories",
+                "managed": False,
             },
         ),
         migrations.CreateModel(
-            name='ProductImage',
+            name="ProductImage",
             fields=[
-                ('id', models.AutoField(db_column='imgIdpk', primary_key=True, serialize=False)),
-                ('url', models.URLField(db_column='imgURL')),
-                ('description', models.TextField(db_column='imgDescription')),
-                ('upload_date', models.DateTimeField(auto_now_add=True, db_column='imgUploadDate')),
-                ('last_edit_date', models.DateTimeField(auto_now=True, db_column='imgLastEditDate')),
+                (
+                    "id",
+                    models.AutoField(
+                        db_column="imgIdpk", primary_key=True, serialize=False
+                    ),
+                ),
+                ("url", models.URLField(db_column="imgURL")),
+                ("description", models.TextField(db_column="imgDescription")),
+                (
+                    "upload_date",
+                    models.DateTimeField(auto_now_add=True, db_column="imgUploadDate"),
+                ),
+                (
+                    "last_edit_date",
+                    models.DateTimeField(auto_now=True, db_column="imgLastEditDate"),
+                ),
             ],
             options={
-                'db_table': 'tblProductImages',
-                'managed': False,
+                "db_table": "tblProductImages",
+                "managed": False,
             },
         ),
         migrations.CreateModel(
-            name='ProductSubCategory',
+            name="ProductSubCategory",
             fields=[
-                ('id', models.AutoField(db_column='sctgIdpk', primary_key=True, serialize=False)),
-                ('subcategory_name', models.CharField(db_column='sctgName', max_length=100, unique=True)),
-                ('created_date', models.DateTimeField(auto_now_add=True, db_column='sctgCreatedDate')),
-                ('last_edit_date', models.DateTimeField(auto_now=True, db_column='sctgLastEditDate')),
+                (
+                    "id",
+                    models.AutoField(
+                        db_column="sctgIdpk", primary_key=True, serialize=False
+                    ),
+                ),
+                (
+                    "subcategory_name",
+                    models.CharField(db_column="sctgName", max_length=100, unique=True),
+                ),
+                (
+                    "created_date",
+                    models.DateTimeField(
+                        auto_now_add=True, db_column="sctgCreatedDate"
+                    ),
+                ),
+                (
+                    "last_edit_date",
+                    models.DateTimeField(auto_now=True, db_column="sctgLastEditDate"),
+                ),
             ],
             options={
-                'db_table': 'tblProductSubCategories',
-                'managed': False,
+                "db_table": "tblProductSubCategories",
+                "managed": False,
             },
         ),
         migrations.CreateModel(
-            name='ProductVariant',
+            name="ProductVariant",
             fields=[
-                ('id', models.AutoField(db_column='prvIdpk', primary_key=True, serialize=False)),
-                ('prvColor', models.CharField(db_column='prvColor', max_length=100)),
-                ('prvSize', models.CharField(db_column='prvSize', max_length=100)),
-                ('prvMaterial', models.CharField(db_column='prvMaterial', max_length=100)),
-                ('prvPriceModifier', models.DecimalField(db_column='prvPriceModifier', decimal_places=2, max_digits=10)),
-                ('prvQuantityAvailable', models.IntegerField(db_column='prvQuantityAvailable')),
-                ('prvSKU', models.CharField(db_column='prvSKU', max_length=100, unique=True)),
-                ('created_date', models.DateTimeField(auto_now_add=True, db_column='prvCreatedDate')),
-                ('last_edit_date', models.DateTimeField(auto_now=True, db_column='prvLastEditDate')),
-                ('product_id', models.ForeignKey(db_column='prvPrdIdfk', on_delete=django.db.models.deletion.CASCADE, to='product.product')),
+                (
+                    "id",
+                    models.AutoField(
+                        db_column="prvIdpk", primary_key=True, serialize=False
+                    ),
+                ),
+                ("prvColor", models.CharField(db_column="prvColor", max_length=100)),
+                ("prvSize", models.CharField(db_column="prvSize", max_length=100)),
+                (
+                    "prvMaterial",
+                    models.CharField(db_column="prvMaterial", max_length=100),
+                ),
+                (
+                    "prvPriceModifier",
+                    models.DecimalField(
+                        db_column="prvPriceModifier", decimal_places=2, max_digits=10
+                    ),
+                ),
+                (
+                    "prvQuantityAvailable",
+                    models.IntegerField(db_column="prvQuantityAvailable"),
+                ),
+                (
+                    "prvSKU",
+                    models.CharField(db_column="prvSKU", max_length=100, unique=True),
+                ),
+                (
+                    "created_date",
+                    models.DateTimeField(auto_now_add=True, db_column="prvCreatedDate"),
+                ),
+                (
+                    "last_edit_date",
+                    models.DateTimeField(auto_now=True, db_column="prvLastEditDate"),
+                ),
+                (
+                    "product_id",
+                    models.ForeignKey(
+                        db_column="prvPrdIdfk",
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="product.product",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='ProductDetails',
+            name="ProductDetails",
             fields=[
-                ('id', models.AutoField(db_column='prdDetailsIdpk', primary_key=True, serialize=False)),
-                ('weight', models.DecimalField(db_column='prdWeight', decimal_places=2, max_digits=10)),
-                ('length', models.DecimalField(db_column='prdLength', decimal_places=2, max_digits=10)),
-                ('width', models.CharField(db_column='prdWidth', max_length=255)),
-                ('height', models.CharField(db_column='prdHeight', max_length=255)),
-                ('dimensions', models.CharField(db_column='prdDimensions', max_length=255)),
-                ('techinical_specifications', models.TextField(db_column='prdTechnicalSpecifications')),
-                ('created_date', models.DateTimeField(auto_now_add=True, db_column='prdCreatedDate')),
-                ('last_edit_date', models.DateTimeField(auto_now=True, db_column='prdLastEditDate')),
-                ('product_id', models.ForeignKey(db_column='prdDetailsPrdIdfk', on_delete=django.db.models.deletion.CASCADE, to='product.product')),
+                (
+                    "id",
+                    models.AutoField(
+                        db_column="prdDetailsIdpk", primary_key=True, serialize=False
+                    ),
+                ),
+                (
+                    "weight",
+                    models.DecimalField(
+                        db_column="prdWeight", decimal_places=2, max_digits=10
+                    ),
+                ),
+                (
+                    "length",
+                    models.DecimalField(
+                        db_column="prdLength", decimal_places=2, max_digits=10
+                    ),
+                ),
+                ("width", models.CharField(db_column="prdWidth", max_length=255)),
+                ("height", models.CharField(db_column="prdHeight", max_length=255)),
+                (
+                    "dimensions",
+                    models.CharField(db_column="prdDimensions", max_length=255),
+                ),
+                (
+                    "techinical_specifications",
+                    models.TextField(db_column="prdTechnicalSpecifications"),
+                ),
+                (
+                    "created_date",
+                    models.DateTimeField(auto_now_add=True, db_column="prdCreatedDate"),
+                ),
+                (
+                    "last_edit_date",
+                    models.DateTimeField(auto_now=True, db_column="prdLastEditDate"),
+                ),
+                (
+                    "product_id",
+                    models.ForeignKey(
+                        db_column="prdDetailsPrdIdfk",
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="product.product",
+                    ),
+                ),
             ],
         ),
     ]
