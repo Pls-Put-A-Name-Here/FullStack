@@ -1,21 +1,36 @@
 from rest_framework import status, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
+from drf_spectacular.utils import extend_schema
+
 from .models import Product, ProductImage
 from .serializers import ProductSerializer, ProductImageSerializer
 from .utils import store_image
-from rest_framework import status
-from django.shortcuts import get_object_or_404
 
-
-# Create your views here.
 
 class ProductView(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
 
-# view to handle the product image
+# View to handle the product image
+@extend_schema(
+    methods=['GET'],
+    responses={
+        200: ProductImageSerializer(many=True),
+        404: "Not Found"
+    }
+)
+@extend_schema(
+    methods=['POST'],
+    request=ProductImageSerializer,
+    responses={
+        201: ProductImageSerializer,
+        400: "Bad Request",
+        404: "Not Found"
+    }
+)
 @api_view(['GET', 'POST'])
 def ProductImageView(request, product_id=None):
     if request.method == 'GET':
@@ -27,7 +42,7 @@ def ProductImageView(request, product_id=None):
         else:
             # Return images for a specific product
             product = get_object_or_404(Product, id=product_id)
-            # alternative way to get images
+            # Alternative way to get images
             # product_images = ProductImage.objects.filter(product_id=product)
             # productimage_set is a reverse relation from the product model
             # to the ProductImage model (i.e. product has a foreign key to ProductImage)
@@ -50,4 +65,3 @@ def ProductImageView(request, product_id=None):
         serializer = ProductImageSerializer(product_image)
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-
