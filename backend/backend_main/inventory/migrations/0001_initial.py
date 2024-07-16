@@ -15,17 +15,29 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Inventory',
+            name="Inventory",
             fields=[
-                ('invIdpk', models.AutoField(primary_key=True, serialize=False)),
-                ('invQuantityAvailable', models.IntegerField()),
-                ('invUnitPrice', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('invUnitCost', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('invDateAdded', models.DateTimeField()),
-                ('invExpirationDate', models.DateTimeField()),
-                ('invLastUpdateDate', models.DateTimeField(auto_now=True)),
-                ('invPrdIdfk', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='product.product')),
-                ('invSupIdfk', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='supplier.suppliertable')),
+                ("invIdpk", models.AutoField(primary_key=True, serialize=False)),
+                ("invQuantityAvailable", models.IntegerField()),
+                ("invUnitPrice", models.DecimalField(decimal_places=2, max_digits=10)),
+                ("invUnitCost", models.DecimalField(decimal_places=2, max_digits=10)),
+                ("invDateAdded", models.DateTimeField()),
+                ("invExpirationDate", models.DateTimeField()),
+                ("invLastUpdateDate", models.DateTimeField(auto_now=True)),
+                (
+                    "invPrdIdfk",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="product.product",
+                    ),
+                ),
+                (
+                    "invSupIdfk",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="supplier.suppliertable",
+                    ),
+                ),
             ],
         ),
     ]

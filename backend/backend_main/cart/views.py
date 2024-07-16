@@ -1,9 +1,8 @@
-# from django.shortcuts import render
 from rest_framework.decorators import api_view
-from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
+from drf_spectacular.utils import extend_schema
 
 # from rest_framework.authentication import BasicAuthentication
 # from rest_framework.permissions import IsAuthenticated
@@ -11,7 +10,6 @@ from django.shortcuts import get_object_or_404
 
 from . import models
 from . import serializers
-
 
 # Http404:
 # get_object_or_404:
@@ -34,7 +32,6 @@ def list_or_add(request):
     if request.method == "GET":
         cart_model = models.Cart.objects.all()
         serializer = serializers.CartSerializer(cart_model, many=True)
-
         #     content = {
         #     'user': str(request.user),  # `django.contrib.auth.User` instance.
         #     'auth': str(request.auth),  # None

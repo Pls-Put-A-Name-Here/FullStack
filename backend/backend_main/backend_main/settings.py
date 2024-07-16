@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # CORS
 CORS_ALLOWED_ORIGINS = ["http://localhost:3000", "http://127.0.0.1:3000"]
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,6 +48,8 @@ INSTALLED_APPS = [
     "order.apps.OrderConfig",
     "inventory.apps.InventoryConfig",
     "supplier.apps.SupplierConfig",
+    "payments.apps.PaymentsConfig",
+    "drf_spectacular",
     "rest_framework",
     "rest_framework_jwt",
 ]
@@ -92,7 +95,7 @@ DATABASES = {
         "USER": "",
         "PASSWORD": "",
         # change host name to the name you see when you are trying to login to ssms
-        "HOST": "KIRKPC\SALEMSERVER",
+        "HOST": "KIRKPC\\SALEMSERVER",
         "PORT": "",
         "OPTIONS": {"driver": "ODBC Driver 17 for SQL Server"},
     }
@@ -142,3 +145,9 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+REST_FRAMEWORK = {
+    # ...
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    # ...
+}
