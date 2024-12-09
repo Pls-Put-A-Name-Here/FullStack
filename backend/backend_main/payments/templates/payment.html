@@ -1,12 +1,8 @@
 <!-- templates/payment.html -->
-{% extends "base_layout.html" %}
-
-{% block title %}Payment{% endblock %}
-
-{% block content %}
+{% extends "base_layout.html" %} {% block title %}Payment{% endblock %} {% block
+content %}
 <form action="{{ form.action }}" method="{{ form.method }}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <p><input type="submit" value="Proceed" /></p>
+  {% csrf_token %} {{ form.as_p }}
+  <p><input type="submit" value="Proceed" /></p>
 </form>
 {% endblock %}

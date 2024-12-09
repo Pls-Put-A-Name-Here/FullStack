@@ -1,32 +1,38 @@
 <!-- payment/initiate_payment.html -->
-{% extends "base_layout.html" %}
-
-{% block title %}Initiate Payment{% endblock %}
-
-
+{% extends "base_layout.html" %} {% block title %}Initiate Payment{% endblock %}
 {% block content %}
 <div class="max-w-lg mx-auto py-8">
-    <h1 class="text-2xl font-bold mb-6">Initiate Payment</h1>
-    <form  method="post" class="space-y-4">
-        {% csrf_token %}
-        <div class="mb-4">
-            <label for="{{ form.mobile_number.id_for_label }}" class="block text-gray-700 font-medium mb-2">{{ form.mobile_number.label }}</label>
-            {{ form.mobile_number }}
-            {% if form.mobile_number.errors %}
-                <p class="text-red-500 text-sm mt-1">{{ form.mobile_number.errors }}</p>
-            {% endif %}
-        </div>
-        <div class="mb-4">
-            <label for="{{ form.amount.id_for_label }}" class="block text-gray-700 font-medium mb-2">{{ form.amount.label }}</label>
-            {{ form.amount }}
-            {% if form.amount.errors %}
-                <p class="text-red-500 text-sm mt-1">{{ form.amount.errors }}</p>
-            {% endif %}
-        </div>
-        <div class="mt-6">
-            <button type="submit" class="w-full bg-blue-500 text-white font-medium py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">Proceed to Payment</button>
-        </div>
-    </form>
+  <h1 class="text-2xl font-bold mb-6">Initiate Payment</h1>
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+    <div class="mb-4">
+      <label
+        for="{{ form.mobile_number.id_for_label }}"
+        class="block text-gray-700 font-medium mb-2"
+        >{{ form.mobile_number.label }}</label
+      >
+      {{ form.mobile_number }} {% if form.mobile_number.errors %}
+      <p class="text-red-500 text-sm mt-1">{{ form.mobile_number.errors }}</p>
+      {% endif %}
+    </div>
+    <div class="mb-4">
+      <label
+        for="{{ form.amount.id_for_label }}"
+        class="block text-gray-700 font-medium mb-2"
+        >{{ form.amount.label }}</label
+      >
+      {{ form.amount }} {% if form.amount.errors %}
+      <p class="text-red-500 text-sm mt-1">{{ form.amount.errors }}</p>
+      {% endif %}
+    </div>
+    <div class="mt-6">
+      <button
+        type="submit"
+        class="w-full bg-blue-500 text-white font-medium py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+      >
+        Proceed to Payment
+      </button>
+    </div>
+  </form>
 </div>
 {% endblock %}
-

@@ -1,126 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Profile</title>
-    <link rel="stylesheet" href="/frontend/css/styles.css">
-    <link rel="stylesheet" href="/frontend/css/account.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/frontend/css/styles.css" />
+    <link rel="stylesheet" href="/frontend/css/account.css" />
+  </head>
+  <body>
     <div class="container">
-        <!-- ---------------------header---------------- -->
-        <header>
-            <nav>
-                <div class="logo">
-                    <a href="#">
-                        <img src="../assets/logo.png" alt="logo">
-                        <h3>Jonas Store</h3>
-                    </a>
-                </div>
-                <div class="navigation">
-                    <div class="search">
-                        <input type="search" name="search" class="search-field" placeholder="search products">
-                        <img src="../assets/search-normal.png" alt="searchIcon" class="search-btn"
-                            onclick="toggleSize()">
-
-                    </div>
-                    <div class="nav-items">
-                        <a href="./cart.html">
-                            <img src="../assets/bag-2.png" alt="cartImg">
-                            <p>Cart</p>
-                        </a>
-                    </div>
-                    <div class="nav-items">
-                        <a href="./account.html">
-                            <img src="../assets/user.png" alt="userIcon">
-                            <p>Account</p>
-                        </a>
-                    </div>
-                </div>
-            </nav>
-        </header> 
-        <!-- ---------------------main---------------- -->
-        <main class="sub-container">
-            <div class="sidebar">
-                <nav>
-                    <ul>
-                        <li><a href="#" class="active">My Account</a></li>
-                        <li><a href="/frontend/html/reset_password.html">Reset Password</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </nav>
+      <!-- ---------------------header---------------- -->
+      <header>
+        <nav>
+          <div class="logo">
+            <a href="#">
+              <img src="../assets/logo.png" alt="logo" />
+              <h3>Jonas Store</h3>
+            </a>
+          </div>
+          <div class="navigation">
+            <div class="search">
+              <input
+                type="search"
+                name="search"
+                class="search-field"
+                placeholder="search products"
+              />
+              <img
+                src="../assets/search-normal.png"
+                alt="searchIcon"
+                class="search-btn"
+                onclick="toggleSize()"
+              />
             </div>
-            <div class="main-content">
-                <div class="header">
-                    <div class="profile">
-                        <img src="https://placeholder.com/420" alt="Jane Morgan" class="profile-img">
-                        <div class="profile-info">
-                            <h2>Jane Morgan</h2>
-                            <p>morganj12@gmail.com</p>
-                            <p>United Kingdom</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="section">
-                    <h3>Personal Information</h3>
-                    <div class="inner-section">
-                        <div class="info">
-                            <div class="info-item">
-                                <label>First Name</label>
-                                <p>Jane</p>
-                            </div>
-                            <div class="info-item">
-                                <label>Last Name</label>
-                                <p>Morgan</p>
-                            </div>
-                            <div class="info-item">
-                                <label>Email</label>
-                                <p>morganj12@gmail.com</p>
-                            </div>
-                        </div>
-                        <div>
-                            <button class="btn btn-edit">
-                                <span>Edit</span>
-                            </button>
-                        </div> 
-                    </div>               
-                </div>
-                <div class="section">
-                    <h3>Address</h3>
-                    <div class="inner-section">
-                        <div class="info">
-                            <div class="info-item">
-                                <label>Country</label>
-                                <p>Ghana</p>
-                            </div>
-                            <div class="info-item">
-                                <label>City</label>
-                                <p>Kumasi</p>
-                            </div>
-                            <div class="info-item">
-                                <label>Digital Address</label>
-                                <p>GYB294995</p>
-                            </div>
-                            <div class="info-item">
-                                <label>Region</label>
-                                <p>Ashanti Region</p>
-                            </div>
-                            <div class="info-item">
-                                <label>Phone Number</label>
-                                <p>+233 023 927 723</p>
-                            </div>
-                        </div>
-                        <div>
-                                <button class="btn btn-edit">
-                                    <span>Edit</span>
-                                </button>
-                        </div>
-                    </div>
-                </div>
+            <div class="nav-items">
+              <a href="./cart.html">
+                <img src="../assets/bag-2.png" alt="cartImg" />
+                <p>Cart</p>
+              </a>
             </div>
-        </main>
+            <div class="nav-items">
+              <a href="./account.html">
+                <img src="../assets/user.png" alt="userIcon" />
+                <p>Account</p>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!-- ---------------------main---------------- -->
+      <main class="sub-container">
+        <div class="sidebar">
+          <nav>
+            <ul>
+              <li><a href="#" class="active">My Account</a></li>
+              <li>
+                <a href="/frontend/html/reset_password.html">Reset Password</a>
+              </li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="main-content">
+          <div class="header">
+            <div class="profile">
+              <img
+                src="https://placeholder.com/420"
+                alt="Jane Morgan"
+                class="profile-img"
+              />
+              <div class="profile-info">
+                <h2>Jane Morgan</h2>
+                <p>morganj12@gmail.com</p>
+                <p>United Kingdom</p>
+              </div>
+            </div>
+          </div>
+          <div class="section">
+            <h3>Personal Information</h3>
+            <div class="inner-section">
+              <div class="info">
+                <div class="info-item">
+                  <label>First Name</label>
+                  <p>Jane</p>
+                </div>
+                <div class="info-item">
+                  <label>Last Name</label>
+                  <p>Morgan</p>
+                </div>
+                <div class="info-item">
+                  <label>Email</label>
+                  <p>morganj12@gmail.com</p>
+                </div>
+              </div>
+              <div>
+                <button class="btn btn-edit">
+                  <span>Edit</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="section">
+            <h3>Address</h3>
+            <div class="inner-section">
+              <div class="info">
+                <div class="info-item">
+                  <label>Country</label>
+                  <p>Ghana</p>
+                </div>
+                <div class="info-item">
+                  <label>City</label>
+                  <p>Kumasi</p>
+                </div>
+                <div class="info-item">
+                  <label>Digital Address</label>
+                  <p>GYB294995</p>
+                </div>
+                <div class="info-item">
+                  <label>Region</label>
+                  <p>Ashanti Region</p>
+                </div>
+                <div class="info-item">
+                  <label>Phone Number</label>
+                  <p>+233 023 927 723</p>
+                </div>
+              </div>
+              <div>
+                <button class="btn btn-edit">
+                  <span>Edit</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
     <script src="scripts.js"></script>
-</body>
+  </body>
 </html>

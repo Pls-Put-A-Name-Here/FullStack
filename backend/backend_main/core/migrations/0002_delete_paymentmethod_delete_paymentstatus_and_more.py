@@ -6,17 +6,17 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0001_initial'),
+        ("core", "0001_initial"),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='PaymentMethod',
+            name="PaymentMethod",
         ),
         migrations.DeleteModel(
-            name='PaymentStatus',
+            name="PaymentStatus",
         ),
         migrations.DeleteModel(
-            name='Purchase',
+            name="Purchase",
         ),
     ]
